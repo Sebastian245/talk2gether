@@ -1,0 +1,7 @@
+<ng-container *ngIf="!mostrarChatExitoso; else msjExitoso">
+    <app-login-chat (dataLoginAbierto)="abrirChatConId($event)" ></app-login-chat>
+</ng-container>
+
+<ng-template #msjExitoso>
+    <app-comet-chat-conversation-list-screen-page></app-comet-chat-conversation-list-screen-page>
+</ng-template>

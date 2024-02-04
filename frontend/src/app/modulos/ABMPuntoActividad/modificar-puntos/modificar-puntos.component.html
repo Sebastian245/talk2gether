@@ -1,0 +1,85 @@
+<div class="modal-content-interes">
+  <div class="modal-header">
+    <button type="button" class="btn btn-link grande" (click)="dismissModal()">
+      <i class="far fa-times-circle"></i>
+    </button>
+  </div>
+  <form [formGroup]="puntosForm" (ngSubmit)="enviarDatos()" class="formulario-orden">
+    <h2 class="estilo-letra-h2">Modificar puntos por actividad</h2>
+    <div class="padding">
+      <!-- <div class="estilo-letra">
+          <label for="pais">Actividad: {{nombrePunto}} </label>
+        </div> -->
+      <div class="estilo-letra">
+        <div class="separacion">
+          <label for="puntos">Actividad*</label>
+        </div>
+      </div>
+      <div class="estilo-letra">
+        <input type="text" id="actividad" formControlName="actividad" placeholder="Ingresá el nombre de la actividad"
+          required />
+      </div>
+      <div *ngIf="puntosForm.get('actividad').invalid && submitForm">
+        <div class="text-error" *ngIf="puntosForm.get('actividad').errors?.['required']">El nombre de la actividad es
+          obligatoria.</div>
+        <div class="text-error" *ngIf="puntosForm.get('actividad').errors?.['soloLetras']">Solo se permiten letras.
+        </div>
+      </div>
+      <div class="estilo-letra">
+        <div class="separacion">
+          <label for="puntos">Puntos ganados*</label>
+        </div>
+      </div>
+      <div class="estilo-letra">
+        <input type="text" id="puntos" formControlName="puntos" placeholder="Ingresá la cantidad de puntos ganados"
+          required />
+      </div>
+      <div *ngIf="puntosForm.get('puntos').invalid && submitForm">
+        <div class="text-error" *ngIf="puntosForm.get('puntos').errors?.['required']">Los puntos son obligatorios.</div>
+        <div class="text-error" *ngIf="puntosForm.get('puntos').errors?.['soloNumeros']">Solo se permiten números</div>
+      </div>
+      <div class="estilo-letra">
+        <div class="separacion">
+          <label for="descripcion">Descripción*</label>
+        </div>
+      </div>
+      <div class="estilo-letra">
+        <textarea id="textArea" rows="3" formControlName="descripcion"
+          placeholder="Describa la actividad..."></textarea>
+      </div>
+      <div *ngIf="puntosForm.get('descripcion').invalid && submitForm">
+        <div class="text-error" *ngIf="puntosForm.get('descripcion').errors?.['required']">La descripción es
+          obligatoria.</div>
+      </div>
+      <ng-container *ngIf="tipoActividad != 'Plataforma'; else noMostrar">
+        <div class="estilo-letra">
+          <div class="separacion">
+            <label for="puntosMaximos">Objetivo*</label>
+          </div>
+        </div>
+        <div class="estilo-letra">
+          <input type="text" id="puntosMaximos" formControlName="puntosMaximos" placeholder="Ingresá el objetivo"
+            required />
+        </div>
+        <div *ngIf="puntosForm.get('puntosMaximos').invalid && submitForm">
+          <div class="text-error" *ngIf="puntosForm.get('puntosMaximos').errors?.['required']">El objetivo es
+            obligatorio.</div>
+          <div class="text-error" *ngIf="puntosForm.get('puntosMaximos').errors?.['soloNumeros']">Solo se permiten
+            números</div>
+        </div>
+      </ng-container>
+      <ng-template #noMostrar>
+        <div class="estilo-letra">
+          <div class="separacion">
+            <label for="puntos">El objetivo no se puede modificar.</label>
+          </div>
+        </div>
+      </ng-template>
+      <div class="botones">
+        <div type="button" class="botones-volver estilo-letra grande" type="button" (click)="dismissModal()">Volver
+        </div>
+        <button class="botones-submit estilo-letra grande" type="submit">Confirmar</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+.letra{
+    color: black;
+    padding: 10px;
+    background-color: #FEFED5;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 15px;
+    overflow-y: auto;
+    max-height: 600px;
+    padding: 20px;
+
+}
+
+img{
+    border: 1px black;
+    max-width: 650px;
+
+}
+
+.centrado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.letra::-webkit-scrollbar {
+    width: 8px; /* Ancho del scroll */
+}
+
+.letra::-webkit-scrollbar-thumb {
+    background-color: #FEFED5; /* Color del "pomo" del scroll */
+    border-radius: 5px; /* Borde redondeado del "pomo" del scroll */
+}
+
+.letra::-webkit-scrollbar-thumb:hover {
+    background-color: #CCCCCC; /* Cambio de color al pasar el mouse */
+}
+
+.letra::-webkit-scrollbar-track {
+    background-color: #888888; /* Color de fondo del track */
+    border-radius: 5px; /* Borde redondeado del track */
+}

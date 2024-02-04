@@ -1,0 +1,28 @@
+.organizacion-pantalla {
+    display: flex;
+    flex-direction: row;
+    column-gap: 50px;
+    padding-left: 55px;
+}
+
+.orgnizacion-preguntar-freq {
+    position: relative;
+    top: 150px;
+}
+
+.list-group-item-info {
+    color: black !important;
+    width: 270px;
+    max-width: 270px;
+}
+
+#descarga{
+    background: #83e8ff;
+    margin-bottom: 10px;
+    border-color: #83e8ff;
+
+    &:hover{
+        background: #69c3d7;
+        border-color: #69c3d7;
+    }
+}

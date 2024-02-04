@@ -1,0 +1,112 @@
+app-eliminar-cuenta-modal {
+  .modal-content-eliminar-cuenta {
+    background-color: #2b6a78;
+    border-radius: 20px !important;
+
+    h3 {
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .modal-header {
+      border: none;
+      justify-content: end;
+      padding-bottom: 0;
+
+      button {
+        color: white;
+        padding: 0;
+        i,
+        svg,
+        i::before {
+          height: 20px;
+          width: 20px;
+          font-size: 20px;
+        }
+      }
+    }
+
+    .container {
+      h4 {
+        color: white;
+      }
+    }
+
+    .titles {
+      font-family: Poppins;
+      font-style: normal;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      margin-top: 10px;
+    }
+
+    .text-error {
+      color: #ff9234;
+    }
+
+    label {
+      text-align: center;
+    }
+
+    #boton-eliminar {
+      background-color: #199de8;
+      border-radius: 10px;
+      border: 0;
+      font-family: Poppins;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .edades {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+    }
+
+    #advertencia {
+      color: #ad1010;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .form-check {
+      color: white;
+      input {
+        cursor: pointer;
+      }
+      label {
+        cursor: pointer;
+      }
+    }
+
+    .password-input-container {
+      position: relative;
+    }
+
+    .password-eyes {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: black;
+    }
+  }
+}
+
+.modal-content {
+  background-color: #2b6a78 !important;
+  width: auto !important;
+  min-height: 465px;
+  border: 0;
+}
+
+.modal-dialog {
+  max-width: var(--bs-modal-width) !important;
+  width: 700px;
+}

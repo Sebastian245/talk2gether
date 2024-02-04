@@ -1,0 +1,44 @@
+<div class="modal-content-interes">
+  <div class="modal-header">
+    <button type="button" class="btn btn-link grande" (click)="dismissModal()">
+      <i class="far fa-times-circle"></i>
+    </button>
+  </div>
+  <form [formGroup]="interesForm" (ngSubmit)="enviarDatos()" class="formulario-orden">
+    <h2 class="estilo-letra-h2">Añadir nuevo interés</h2>
+    <div class="padding">
+      <div class="estilo-letra">
+        <label for="interes">Interés*</label>
+      </div>
+      <div class="estilo-letra">
+        <input type="text" id="interes" formControlName="interes" placeholder="Ingresá el interés" required />
+      </div>
+      <div>
+        <div *ngIf="interesForm.get('interes').hasError('required') && submitForm">
+          <div class="text-error">El interés es requerido</div>
+        </div>
+        <div *ngIf="interesForm.get('interes').errors?.['soloLetras'] && submitForm">
+          <div class="text-error">Solo se permiten letras y espacios.</div>
+        </div>
+      </div>
+      <div class="estilo-letra">
+        <div class="separacion">
+          <label for="interes">Ícono interés*</label>
+          <i class="fa-solid fa-circle-info grande" (click)="abrirInfo()"></i>
+        </div>
+      </div>
+      <div class="estilo-letra">
+        <input type="text" id="interes" formControlName="urlInteres" placeholder="Ingresá el ícono del interés"
+          required />
+      </div>
+      <div *ngIf="interesForm.get('urlInteres').hasError('required') && submitForm">
+        <div class="text-error">El ícono del interés es requerido</div>
+      </div>
+      <div class="botones">
+        <div type="button" class="botones-volver estilo-letra grande" type="button" (click)="dismissModal()">Volver
+        </div>
+        <button class="botones-submit estilo-letra grande" type="submit">Confirmar</button>
+      </div>
+    </div>
+  </form>
+</div>

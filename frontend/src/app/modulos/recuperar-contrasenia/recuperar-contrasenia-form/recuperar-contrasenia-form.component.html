@@ -1,0 +1,32 @@
+<div class="login-container"> 
+    <form class="login-form" [formGroup]="recuperarForm" (ngSubmit)="enviarDatos()"> 
+        <div class="form-group">
+            <h2>Recuperar contraseña</h2>
+            <h1>Introduce el email que utilizas</h1>
+            <input
+            class="input"
+            type="email"
+            id="username"
+            name="username"
+            placeholder="Ingresá tu correo"
+            required
+            formControlName="email"
+            /> 
+            <div *ngIf="recuperarForm.get('email').hasError('required')&& submitForm">
+                <p class="text-error text-error-input">El email es requerido</p>
+            </div>
+            <div *ngIf="recuperarForm.get('email').hasError('pattern') && submitForm">
+                <p class="text-error text-error-input">El email no respeta una estructura</p>
+            </div>
+            <div class="centrado">
+                <div *ngIf="errorService" class="text-error text-error-response">
+                    {{messageError}}
+                </div>
+            </div>
+            <div class="login-buttons">
+                <button class="button-left" type="button" (click)="returnLogin()">Volver</button> 
+                <button type="submit" >Siguiente</button>
+            </div>
+        </div>
+    </form>
+</div>

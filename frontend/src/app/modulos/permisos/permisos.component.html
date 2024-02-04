@@ -1,0 +1,35 @@
+<div class="posicion-general">
+    <div class="separacion-tabla-boton">
+      <div class="tabla-scroll">
+        <table class="table table-borderer table-bordered table-striped table-hover">
+          <thead>
+            <tr class="table-color">
+              <th scope="col">#</th>
+              <th scope="col">Ruta</th>
+              <th scope="col">Roles</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let permiso of permisoList ; let i = index">
+              <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{permiso.nombrePermiso}}</td>
+                <td>{{permiso.listaNombreRol}}</td>
+                <td>
+                  <div class="iconos-orden-tabla">
+                      <!-- <div type="button" ata-toggle="tooltip" title="Ver">
+                        <i class="fa-solid fa-eye grande"></i>
+                      </div> -->
+                      <div type="button" ata-toggle="tooltip" title="Editar" (click)="modificarPermiso(permiso.id, permiso.nombrePermiso, permiso.listaNombreRol)">
+                        <i class="fa-solid fa-pen-to-square grande"></i>
+                      </div>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>

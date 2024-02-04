@@ -1,0 +1,137 @@
+app-intereses-modal {
+  a {
+    text-decoration: none;
+  }
+  .modal-content {
+    background-color: #2b6a78 !important;
+  }
+
+  .modal-content-interes::-webkit-scrollbar {
+    width: 8px; /* Ancho del scroll */
+  }
+
+  .modal-content-interes::-webkit-scrollbar-thumb {
+    background-color: #fefed5; /* Color del "pomo" del scroll */
+    border-radius: 5px; /* Borde redondeado del "pomo" del scroll */
+  }
+
+  .modal-content-interes::-webkit-scrollbar-thumb:hover {
+    background-color: #cccccc; /* Cambio de color al pasar el mouse */
+  }
+
+  .modal-content-interes::-webkit-scrollbar-track {
+    background-color: #888888; /* Color de fondo del track */
+    border-radius: 5px; /* Borde redondeado del track */
+  }
+
+  .modal-content-interes {
+    background-color: #2b6a78;
+    border-top-left-radius: 20px !important;
+    border-bottom-left-radius: 20px !important;
+    overflow-y: auto;
+    max-height: 550px;
+
+    .modal-header {
+      border: none;
+      justify-content: end;
+      padding-bottom: 0;
+
+      button {
+        color: white;
+        padding: 0;
+
+        i,
+        svg,
+        i::before {
+          height: 32px;
+          width: 32px;
+          font-size: 32px;
+        }
+      }
+    }
+  }
+
+  .intereses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 15px 30px 30px;
+    justify-content: center;
+    border-radius: 18px;
+    grid-gap: 10px;
+    font-size: 100px;
+
+    &_items {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .interes {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    border-radius: 5%;
+
+    &:hover {
+      background-color: rgba(253, 253, 253, 0.8);
+
+      i,
+      svg {
+        color: rgb(43, 106, 120, 0.8);
+      }
+
+      .interes_name {
+        color: rgb(43, 106, 120, 0.8);
+      }
+    }
+
+    i {
+      color: white;
+    }
+    svg {
+      width: 140px;
+      height: 140px;
+      color: white;
+    }
+
+    &_name {
+      font-size: 40px;
+      text-align: center;
+      color: white;
+    }
+
+    a {
+      width: 100%;
+      cursor: pointer;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px 0 0;
+    }
+
+    &-deshabilitado {
+      cursor: not-allowed !important;
+    }
+  }
+
+  .seleccionado {
+    i,
+    svg {
+      color: #2b6a78;
+    }
+
+    background-color: white;
+
+    .interes_name {
+      color: #2b6a78;
+    }
+  }
+}
+
+.modal-content {
+  border: 0;
+}

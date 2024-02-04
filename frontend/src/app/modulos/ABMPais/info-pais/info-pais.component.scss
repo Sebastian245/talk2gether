@@ -1,0 +1,19 @@
+.letra{
+    color: black;
+    padding: 10px;
+    background-color: #FEFED5;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    column-gap: 15px;
+}
+
+img{
+    border: 1px black
+}
+
+.centrado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

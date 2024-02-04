@@ -1,0 +1,30 @@
+<div class="modal-content-interes">
+    <div class="modal-header">
+      <button type="button" class="btn btn-link grande" (click)="dismissModal()">
+        <i class="far fa-times-circle"></i>
+      </button>
+    </div>
+    <form [formGroup]="motivosForm" (ngSubmit)="enviarDatos()" class="formulario-orden">
+      <h2 class="estilo-letra-h2">Añadir Nuevo Motivo de Reporte</h2>
+      <div class="padding">
+        <div class="estilo-letra">
+          <label for="motivo">Motivo de Reporte*</label>
+        </div>
+        <div class="estilo-letra">
+          <input type="text" id="motivo" formControlName="motivo" placeholder="Ingresá el motivo" required />
+        </div>
+        <div>
+          <div *ngIf="motivosForm.get('motivo').hasError('required') && submitForm">
+            <div class="text-error">El motivo de reporte es requerido</div>
+          </div>
+          <div *ngIf="motivosForm.get('motivo').errors?.['soloLetras'] && submitForm">
+            <div class="text-error">Solo se permiten letras y espacios.</div>
+          </div>
+        </div>
+        <div class="botones">
+          <div type="button" class="botones-volver estilo-letra grande" type="button" (click)="dismissModal()">Volver</div>
+          <button class="botones-submit estilo-letra grande" type="submit">Confirmar</button>
+        </div>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,116 @@
+app-aniadir-pais {
+    .estilo-letra {
+        font-family: Poppins;
+        color: white;
+        font-weight: bold;
+        font-size: 25px;
+
+        &-h2 {
+            font-size: 35px;
+            color: white;
+            font-family: Poppins;
+            font-weight: bold;
+            left: 15px;
+            position: relative;
+        }
+    }
+
+    button {
+        border: 1px solid transparent;
+    }
+
+    .padding {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    ;
+
+    input {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px transparent;
+    }
+
+    .formulario-orden {
+        display: flex;
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+
+    .botones {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        flex-direction: row;
+        column-gap: 50px;
+
+        &-submit {
+            background-color: #199DE8;
+            border-radius: 20px;
+            width: 145px;
+        }
+
+        &-volver {
+            background-color: #909293;
+            border-radius: 20px;
+            width: 145px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .modal-content-interes {
+        background-color: #2b6a78;
+        border-radius: 20px !important;
+
+        .modal-header {
+            border: none;
+            justify-content: end;
+            padding-bottom: 0;
+
+            button {
+                color: white;
+                padding: 0;
+
+                i,
+                svg,
+                i::before {
+                    height: 32px;
+                    width: 32px;
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+    .separacion{
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    align-items: center;
+    }
+}
+
+.modal-content {
+    display: flex;
+    background-color: #2b6a78 !important;
+    width: auto !important;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal-dialog {
+    max-width: var(--bs-modal-width) !important;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,77 @@
+<div class="modal-content-cambiar-contrasenia">
+    <div class="modal-header">
+        <div class="ms-auto">
+            <button type="button" class="btn btn-link" (click)="dismissModal()">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="container px-4">
+        <h3>Cambiar contraseña</h3>
+
+        <form [formGroup]="cambioContraseniaForm">
+            <div class="form-group my-4">
+                <label class="titles" for="name">Contraseña actual*</label>
+                <div class="form-group password-input-container">
+                    <input type="{{ showOldPassword ? 'text' : 'password' }}" class="form-control"
+                        placeholder="Ingrese su contraseña..." formControlName="oldPassword">
+                    <a class="password-eyes" (click)="toggleOldPasswordView()">
+                        <span *ngIf="showOldPassword"><i class="fas fa-eye"></i></span>
+                        <span *ngIf="!showOldPassword"><i class="fas fa-eye-slash"></i></span>
+                    </a>
+                </div>
+                <div
+                    *ngIf="cambioContraseniaForm.get('oldPassword').hasError('required') && cambioContraseniaForm.get('oldPassword').touched">
+                    <p class="text-error">Debe escribir su contraseña actual.</p>
+                </div>
+            </div>
+
+            <div class="form-group mb-4">
+                <label class="titles" for="name">Contraseña nueva*</label>
+                <div class="form-group password-input-container">
+                    <input type="{{ showNewPassword ? 'text' : 'password' }}" class="form-control"
+                        placeholder="Ingrese su contraseña..." formControlName="newPassword">
+                    <a class="password-eyes" (click)="toggleNewPasswordView()">
+                        <span *ngIf="showNewPassword"><i class="fas fa-eye"></i></span>
+                        <span *ngIf="!showNewPassword"><i class="fas fa-eye-slash"></i></span>
+                    </a>
+                </div>
+                <div
+                    *ngIf="cambioContraseniaForm.get('newPassword').hasError('strong') &&
+                cambioContraseniaForm.get('newPassword').touched && cambioContraseniaForm.get('newPassword').value.length >0">
+                    <p class="text-error">
+                        La contraseña debe contener mínimo 8 caracteres, una mayúscula y un número.
+                    </p>
+                </div>
+                <div
+                    *ngIf="cambioContraseniaForm.get('newPassword').hasError('required') && cambioContraseniaForm.get('newPassword').touched">
+                    <p class="text-error">La contraseña es obligatoria.</p>
+                </div>
+            </div>
+
+            <div class="form-group mb-2">
+                <label class="titles" for="name">Repetir contraseña nueva*</label>
+                <div class="form-group password-input-container">
+                    <input type="{{ showRepeatedNewPassword ? 'text' : 'password' }}" class="form-control"
+                        placeholder="Ingrese su contraseña..." formControlName="repeatedNewPassword"
+                        pattern="{{ cambioContraseniaForm.get('newPassword').value }}">
+                    <a class="password-eyes" (click)="toggleRepeatedNewPasswordView()">
+                        <span *ngIf="showRepeatedNewPassword"><i class="fas fa-eye"></i></span>
+                        <span *ngIf="!showRepeatedNewPassword"><i class="fas fa-eye-slash"></i></span>
+                    </a>
+                </div>
+                <div *ngIf="cambioContraseniaForm.get('newPassword').value != cambioContraseniaForm.get('repeatedNewPassword').value
+              && cambioContraseniaForm.get('repeatedNewPassword').touched">
+                    <p class="text-error">
+                        Las contraseñas no coinciden.
+                    </p>
+                </div>
+            </div>
+        </form>
+        <div>
+            <button id="boton-eliminar" type="submit" class="btn btn-primary w-100 my-3" (click)="cambiarContrasenia()"
+                [disabled]="cambioContraseniaForm.invalid">Confirmar</button>
+        </div>
+    </div>
+</div>

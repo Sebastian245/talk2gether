@@ -1,0 +1,217 @@
+.posicion-general {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  overflow-y: auto;
+
+  .estadistica{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+
+    .titulo{
+      font-size: 20px;
+      font-weight: bold;
+      padding: 0;
+    }
+    .subtitulo{
+      font-size: 15px;
+      font-weight: bold;
+      padding: 0;
+      color: gray
+    }
+    .dato{
+      font-size: 35px;
+      font-weight: bold;
+      padding: 0;
+    }
+    .superior{
+      height: 10%;
+      width: 100%;
+    } 
+    .inferior{
+      height: 90%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .rango:nth-child(1){
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+    }
+    .rango:nth-child(2){
+      position: absolute;
+      bottom: 25px;
+      right: 10px;
+    }
+    .rango:nth-child(3){
+      position: absolute;
+      bottom: 45px;
+      right: 10px;
+    }
+    .rango:nth-child(4){
+      position: absolute;
+      bottom: 65px;
+      right: 10px;
+    }
+    .rango:nth-child(5){
+      position: absolute;
+      bottom: 85px;
+      right: 10px;
+    }
+    .label-filtro{
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+    }
+  }
+  .item-1-0 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: beige;
+  }
+
+  .item-1-1 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: beige;
+
+  }
+
+  .item-2-0 {
+    grid-column: 1/2;
+    grid-row: 2/4;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: beige;
+
+  }
+
+  .item-2-1-1 {
+    border-radius: 10px;
+    grid-column: 2/3;
+    border: 1px solid gray;
+    grid-row: 2/3;
+    background-color: beige;
+
+  }
+
+  .item-2-1-2 {
+    border-radius: 10px;
+    grid-column: 2/3;
+    border: 1px solid gray;
+    grid-row: 3/4;
+    background-color: beige;
+    position: relative;
+  }
+
+  .item-3-0 {
+    grid-column: 1/2;
+    grid-row: 4/6;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: beige;
+
+  }
+
+  .item-3-1 {
+    grid-column: 2/3;
+    grid-row: 4/6;
+    border-radius: 10px;
+    border: 1px solid gray;
+    background-color: beige;
+
+  }
+
+  
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  column-gap: 10px;
+}
+.container-dashboard{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  row-gap: 15px;
+  z-index: 100;
+  padding: 25px;
+}
+
+canvas{
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  
+}
+.posicion-boton{
+  button{
+    font-weight: bold;
+    background-color: #2b6a78;
+    padding: 6px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+  }
+}
+
+.filtros{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: end;
+  align-items: center;
+  button{
+    font-weight: bold;
+    background-color: #2b6a78;
+    padding: 6px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    width: 45%;
+    white-space: nowrap;
+  }
+  i{
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    font-size: 35px;
+    color: #2b6a78;
+  }
+  .posicion-botones{
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    width: 30%;
+  }
+  .titulo-dashboard{
+    width: 35%;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .fecha{
+    width: 45%;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+

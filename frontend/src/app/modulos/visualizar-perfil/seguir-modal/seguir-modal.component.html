@@ -1,0 +1,58 @@
+<ng-container *ngIf="flag">
+<div class="modal-content-interes">
+    <div class="modal-header">
+        <button type="button" class="btn btn-link" (click)="dismissModal()">
+            <i class="fa-regular fa-circle-xmark"></i>
+        </button>
+    </div>
+
+    <div class="modal-body-content">
+        <div class="modal-body-content__buttons">
+            <button type="button" class="btn btn-tamaño btn-secondary grande"
+                [ngClass]="{'btn-seleccionado': estaEnSeguidores}"
+                (click)="estaEnSeguidores ? '' : mostrarSeguidores()">
+                <div class="horizontal">
+                    <div class="flex">Seguidores</div>
+                    <div class="numero">{{usuariosSeguidores}}</div>
+                </div>
+            </button>
+            <button type="button" class="btn btn-tamaño btn-secondary grande"
+                [ngClass]="{'btn-seleccionado': estaEnSeguidos}" (click)="estaEnSeguidos ? '' : mostrarSeguidos()">
+                <div class="horizontal">
+                    <div class="flex">Seguidos</div>
+                    <div class="numero">{{usuariosSeguidos}}</div>
+                </div>
+            </button>
+        </div>
+    </div>
+    <ng-container *ngIf="!cargando; else showSpinner">
+        <div class="modal-body-content">
+            <div class="modal-body-content__list">
+                <div *ngIf="items.length === 0">
+                    <div class="modal-body-content__list-items__letra">
+                        No hay usuarios
+                    </div>
+                </div>
+                <div *ngFor="let item of items" class="modal-body-content__list-items grande">
+                    <a (click)="visitarPerfil(item.id)" class="modal-body-content__list-items-link">
+                        <div class="modal-body-content__list-items-image">
+                            <img [src]="item.urlFoto" alt="">
+                        </div>
+                        <div class="modal-body-content__list-items-data">
+                            <div class="modal-body-content__list-items-nombre">
+                                {{item.nombreUsuario}}
+                            </div>
+                            <div class="modal-body-content__list-items-apellido">
+                                {{item.apellidoUsuario}}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #showSpinner>
+        <app-spinner [showTinySpinner]="cargando"></app-spinner>
+    </ng-template>
+</div>
+</ng-container>

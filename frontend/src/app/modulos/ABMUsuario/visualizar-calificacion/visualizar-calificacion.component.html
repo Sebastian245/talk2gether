@@ -1,0 +1,67 @@
+<div class="posicion-general">
+    <div class="datos-usuarios">
+        <div>
+            <h4><span>Nombre:</span> {{nombreUsuario}},{{apellidoUsuario}}</h4>
+            <h4><span>Correo:</span> {{correo}}</h4>
+            <h4><span>Rol:</span> {{nombreRol}}</h4>
+        </div>
+        <form [formGroup]="fechasForm" (ngSubmit)="mostrarCalificaciones()">
+            <div class="fechas">
+                <div class="input-group mb-3 fecha">
+                    <div class="letra">Fecha desde:</div>
+                    <input formControlName="fechaDesde" type="date">
+                </div>
+                <div class="input-group mb-3 fecha">
+                    <div class="letra">Fecha hasta:</div>
+                    <input formControlName="fechaHasta" type="date">
+                </div>
+            </div>
+            <div>
+                <div *ngIf="fechasForm.get('fechaDesde').invalid && fechasForm.get('fechaDesde').touched && submitForm">
+                    <div class="text-error" *ngIf="fechasForm.get('fechaDesde').hasError('required')">Fecha Desde es
+                        requerida.</div>
+                </div>
+                <div *ngIf="fechasForm.get('fechaHasta').invalid && fechasForm.get('fechaHasta').touched && submitForm">
+                    <div class="text-error" *ngIf="fechasForm.get('fechaHasta').hasError('required')">Fecha Hasta es
+                        requerida.</div>
+                    <div class="text-error" *ngIf="fechasForm.hasError('validarFecha')">Las fechas son inválidas. Fecha
+                        Hasta no puede ser
+                        menor que Fecha Desde.</div>
+                </div>
+                <button class="fechas__boton" type="submit">Filtrar</button>
+            </div>
+        </form>
+    </div>
+    <!-- CALIFICACIONES -->
+    <ng-container *ngIf="calificaciones.length === 0">
+       <div class="text-error"> No tiene calificaciones en el rango de fechas seleccionado.</div>
+    </ng-container>
+    <div class="tabla-scroll">
+        <table class="table table-borderer table-bordered table-striped table-hover">
+            <thead>
+                <tr class="table-color">
+                    <th scope="col">Calificador</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Estrellas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let cal of calificaciones ; let i = index">
+                    <tr>
+                        <th scope="row" (click)="redireccionPerfil(cal.idCuenta)">
+                            {{cal.nombre}}, {{cal.apellido}}
+                        </th>
+                        <td (click)="redireccionPerfil(cal.idCuenta)">{{cal.correo}}</td>
+                        <td>{{cal.fechaCalificacion}}</td>
+                        <td>
+                            <i *ngFor="let _ of [].constructor(cal.calificacion); let i = index"
+                                class="fas fa-star"></i>
+                        </td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+</div>

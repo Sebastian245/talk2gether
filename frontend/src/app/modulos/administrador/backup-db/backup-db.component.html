@@ -1,0 +1,32 @@
+<div class="contenedor">
+
+    <h3>Backup y Recuperación</h3>
+    <hr>
+    <h5 class="mt-4">Generación de backup</h5>
+    <p>Presiona el siguiente botón para generar un backup de la Base de Datos actual.</p>
+    <div class="my-4">
+        <button type="submit" class="btn btn-primary boton-celeste" (click)="generarBackup()">Generar backup</button>
+    </div>
+    <hr>
+    <h5 class="mt-4">Recuperación de backup</h5>
+    <p>Selecciona el backup que deseas recuperar.</p>
+    <form [formGroup]="backupForm">
+        <div>
+            <select class="form-select" formControlName="backupSeleccionado"
+                style="font-family: Poppins; color: black;">
+                <option value="default" disabled selected>Selecciona el backup a recuperar</option>
+                <option *ngFor="let backup of listaBackups" [value]="backup">{{ backup }}</option>
+            </select>
+            <button type="submit" class="btn btn-primary boton-celeste" (click)="recuperarBackup()">Recuperar
+                backup</button>
+            <div>
+                <div *ngIf="listaBackups.length == 0">
+                    <p class="text-error">
+                        No hay backups disponibles.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </form>
+    <hr>
+</div>

@@ -1,0 +1,7 @@
+<ng-container *ngIf="!pantallaEditarUsuario; else irPantallaEditarUsuario">
+    <app-pantalla-configuracion (pasarPantalla)="pasarPantallaEditarUsuario()"></app-pantalla-configuracion>
+</ng-container>
+
+<ng-template #irPantallaEditarUsuario>
+    <app-editar-perfil (volverPantalla)="volverPantalla()"></app-editar-perfil>
+</ng-template>

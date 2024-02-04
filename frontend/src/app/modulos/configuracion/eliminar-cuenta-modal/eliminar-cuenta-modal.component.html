@@ -1,0 +1,65 @@
+<ng-container *ngIf="motivosCargados">
+    <div class="modal-content-eliminar-cuenta">
+        <div class="modal-header d-flex px-4">
+            <div class="ms-auto">
+                <button type="button" class="btn btn-link" (click)="dismissModal()">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="container px-4">
+            <h3>¿Seguro que desea eliminar su cuenta?</h3>
+
+            <div class="motivos">
+                <label class="titles py-1" for="intereses">Seleccione los motivos por los que elimina su cuenta:</label>
+                <div class="row text-left" style="margin-left: 20px;" *ngFor="let motivo of listaMotivos">
+
+                    <div class="form-check py-1">
+                        <input class="form-check-input" type="checkbox" value="{{ motivo }}" id="{{ motivo }}">
+                        <label class="form-check-label" for="{{ motivo }}">
+                            {{ motivo }}
+                        </label>
+                    </div>
+                </div>
+                <div class="row text-left" style="margin-left: 20px;">
+                    <div class="form-check py-1">
+                        <input class="form-check-input" type="checkbox" [(ngModel)]="otroCheckboxChecked"
+                            id="OtroCheckbox">
+                        <label for="OtroCheckbox">Otro</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1"
+                            style="height: 20px; width: 375px;" [disabled]="!otroCheckboxChecked"
+                            [(ngModel)]="textareaContent"></textarea>
+                    </div>
+                    <div *ngIf="motivosVacios">
+                        <p class="text-error">Debe seleccionar al menos un motivo.</p>
+                    </div>
+                    <div *ngIf="otroCheckboxChecked && textareaContent == ''">
+                        <p class="text-error">Debe redactar un motivo.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <p id="advertencia">Ingrese su contraseña para eliminar su cuenta. Considere que NO podrá ser recuperada.
+            </p>
+
+            <div class="form-group password-input-container">
+                <input type="{{ showRepeatPassword ? 'text' : 'password' }}" class="form-control" id="password"
+                    placeholder="Ingrese su contraseña..." [(ngModel)]="password" (click)="toggleInputClicked()">
+                <a class="password-eyes" (click)="toggleRepeatPasswordView()">
+                    <span *ngIf="showRepeatPassword"><i class="fas fa-eye"></i></span>
+                    <span *ngIf="!showRepeatPassword"><i class="fas fa-eye-slash"></i></span>
+                </a>
+            </div>
+            <div *ngIf="password === '' && inputClicked">
+                <p class="text-error">Debe escribir su contraseña.</p>
+            </div>
+
+            <div>
+                <button id="boton-eliminar" type="submit" class="btn btn-primary w-100 my-3" data-toggle="modal"
+                    data-target="#exampleModal" (click)="eliminarCuenta()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</ng-container>

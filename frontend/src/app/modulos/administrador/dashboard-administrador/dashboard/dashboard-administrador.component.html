@@ -1,0 +1,80 @@
+<div class="container-dashboard">
+    <div class="filtros">
+        <div class="titulo-dashboard">Dashboard Administrador Talk2gether</div>
+        <ng-container *ngIf="fechaDesde != '' ; anual">
+            <div class="fecha">
+                Desde: <label style="color:#2b6a78">{{fechaDesde}}</label>
+                Hasta: <label style="color:#2b6a78">{{fechaHasta}}</label>
+            </div>
+        </ng-container>
+        <ng-template #anual>
+            <div class="fecha">
+                <!-- Desde: <label style="color:#2b6a78">sin fecha</label>
+                Hasta: <label style="color:#2b6a78">sin fecha</label> -->
+            </div>
+        </ng-template>
+        <div class="posicion-botones">
+            <button class="grande" (click)="filtrarPorFecha()">Filtros</button>
+            <button class="grande" (click)="generatePDF()">Generar PDF</button>
+            <i class="far fa-times-circle grande" type="button" (click)="dirigirAdmin()"></i>
+        </div>
+    </div>
+    <div class="posicion-general">
+        <div class="item-1-0">
+            <div class="estadistica">
+                <div class="titulo">Usuarios registrados</div>
+                <div class="dato">{{usuariosRegistradosTotales}} usuarios</div>
+            </div>
+        </div>
+        <div class="item-1-1">
+            <div class="estadistica">
+                <div class="titulo flex"><i class="fa-solid fa-circle fa-beat-fade" style="color: #41f500; font-size: 13px"></i>Usuarios online</div>
+                <div class="dato">{{usuarioActivos}} usuarios</div>
+                <div class="label-filtro subtitulo">No aplica filtro</div>
+            </div>
+        </div>
+        <div class="item-2-0">
+            <div class="estadistica">
+                <div class="titulo superior">Usuarios registrados por mes</div>
+                <div class="inferior">
+                    <canvas #chartCanvas></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="item-2-1-1">
+            <div class="estadistica">
+                <div class="titulo">Tiempo promedio de usuarios que usan videollamadas</div>
+                <div class="dato">{{tiempoPromedioUsuariosQueUtilizanVideollamada}} minutos</div>
+            </div>
+        </div>
+        <div class="item-2-1-2">
+            <div class="estadistica">
+                <div class="titulo">Promedio de calificaciones</div>
+                <div class="dato">{{promedioCalificacion}} <i class="fa-solid fa-star" style="color:gold"></i></div>
+                <div class="contenedor-referencia">
+                    <div class="rango subtitulo">5 <i class="fa-solid fa-star" style="color:gold"></i>: excelente</div>
+                    <div class="rango subtitulo">4 <i class="fa-solid fa-star" style="color:gold"></i>: bueno</div>
+                    <div class="rango subtitulo">3 <i class="fa-solid fa-star" style="color:gold"></i>: regular</div>
+                    <div class="rango subtitulo">2 <i class="fa-solid fa-star" style="color:gold"></i>: malo</div>
+                    <div class="rango subtitulo">1 <i class="fa-solid fa-star" style="color:gold"></i>: muy malo</div>
+                </div>
+            </div>
+        </div>
+        <div class="item-3-0">
+            <div class="estadistica">
+                <div class="titulo superior">Usuarios registrados por país</div>
+                <div class="inferior">
+                    <canvas #chartRegistradorPorPais></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="item-3-1">
+            <div class="estadistica">
+                <div class="titulo superior" [ngStyle]="{'font-size': '16px'}">Usuarios que utilizan videollamada vs Usuarios que no utilizan videollamada</div>
+                <div class="inferior">
+                    <canvas #torta></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

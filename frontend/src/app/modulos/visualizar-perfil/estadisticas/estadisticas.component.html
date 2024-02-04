@@ -1,0 +1,96 @@
+<ng-container *ngIf="{user: isUser$ | async, perfil: isUserPerfil$ | async} as userCargado">
+    <ng-container *ngIf="userCargado.user && userCargado.perfil && estadisticas">
+        <div class="entero">
+            <div class="boton-cruz">
+                <a type="button" (click)="volver()"><i class="fa-regular fa-circle-xmark"
+                        style="color: #ffffff; font-size: 30px;"></i></a>
+            </div>
+
+            <div class="perfil-nombre">
+                <div class="imagen-perfil grande" type="button" (click)="openDialog(userCargado.perfil?.urlFoto)">
+                    <img class="imagen" [src]=userCargado.perfil?.urlFoto id="foto-perfil" />
+                </div>
+                <h6 class="nombre">{{userCargado.perfil?.nombreUsuario}}
+                    {{userCargado.perfil?.apellidoUsuario}},
+                    {{userCargado.perfil?.edadUsuario}}</h6>
+
+                <div class="container">
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <canvas id="myChart" style="max-height: 195px;"></canvas>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row mb-4">
+                                <div class="col-sm">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div>
+                                                <h5>Calificación</h5>
+                                            </div>
+                                            <h4>{{ estadisticas.promedioCalificaciones }} <i class="fa-solid fa-star"
+                                                    style="color: #ffcd3c;"></i></h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div>
+                                                <h5>Cantidad de puntos</h5>
+                                            </div>
+                                            <h4>{{ estadisticas.cantidadPuntos }} EXP</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div>
+                                                <h5>Tiempo máximo en una videollamada</h5>
+                                            </div>
+                                            <h4>{{ estadisticas.tiempoVideollamada }} Minutos</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card" style="height: 100%;">
+                                <div class="card-body">
+                                    <h4>{{userCargado.perfil?.nombreUsuario}} ha interactuado con <span>{{
+                                            estadisticas.cantidadInteraccionesUsuariosDif
+                                            }} usuarios</span>.</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>{{userCargado.perfil?.nombreUsuario}} ha hablado con personas de <span>{{
+                                            estadisticas.cantidadInteraccionesPaisesDif }} países</span> diferentes.
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </ng-container>
+</ng-container>

@@ -1,0 +1,47 @@
+body {
+  background-color: #fff;
+  display: flex;
+}
+
+h2 {
+  padding-top: 5%;
+  font-style: normal;
+  font-weight: bold;
+  color: white;
+  font-family: Poppins;
+  text-decoration: underline;
+}
+
+h4 {
+  padding-top: 3%;
+  font-style: normal;
+  font-weight: bold;
+  color: white;
+  font-family: Poppins;
+  text-decoration: underline;
+}
+
+h5 {
+  padding-top: 2.5%;
+  font-style: normal;
+  font-weight: bold;
+  color: white;
+  font-family: Poppins;
+}
+
+.container {
+  background-color: #2b6a78;
+  border-radius: 20px;
+  margin-left: 12%;
+  margin-right: 12%;
+  margin-top: 105px;
+  margin-bottom: 4%;
+}
+
+p {
+  font-family: Poppins;
+  text-align: justify;
+  font-style: normal;
+  color: white;
+  font-size: 20px;
+}

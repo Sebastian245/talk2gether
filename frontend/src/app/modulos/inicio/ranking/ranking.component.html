@@ -1,0 +1,111 @@
+<ng-container *ngIf="rankingCargado == true">
+
+    <body>
+        <div class="container">
+            <div class="d-flex cabecera">
+                <div>
+                    <h2>Ranking de Puntuación</h2>
+                </div>
+                <div class="ms-auto" style="align-items: center;">
+                    <a type="button" (click)="volver()"><i class="fa-regular fa-circle-xmark"
+                            style="color: #ffffff; font-size: 30px; margin-top: 70%;"></i></a>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col align-self-center lista-usuarios">
+
+                    <div class="d-flex justify-content-between align-items-center usuario-1">
+                        <h4>
+                            {{usuariosRanking[0].posicion}}
+                        </h4>
+                        <div style="display: flex; align-items: center;">
+                            <a href="/perfilUsuario/{{usuariosRanking[0].id}}" target='_blank'>
+                                <img src="{{usuariosRanking[0].urlFoto}}" id="foto-perfil">
+                                <h4 style="display: inline-block; margin-left: 10px;">
+                                    {{usuariosRanking[0].nombreUsuario}}
+                                </h4>
+                            </a>
+                        </div>
+                        <h4>
+                            {{usuariosRanking[0].puntosTotales}} EXP
+                        </h4>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center usuario-2">
+                        <h4>
+                            {{usuariosRanking[1].posicion}}
+                        </h4>
+                        <div style="display: flex; align-items: center;">
+                            <a href="/perfilUsuario/{{usuariosRanking[1].id}}" target='_blank'>
+                                <img src="{{usuariosRanking[1].urlFoto}}" id="foto-perfil">
+                                <h4 style="display: inline-block; margin-left: 10px;">
+                                    {{usuariosRanking[1].nombreUsuario}}
+                                </h4>
+                            </a>
+                        </div>
+                        <h4>
+                            {{usuariosRanking[1].puntosTotales}} EXP
+                        </h4>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center usuario-3">
+                        <h4>
+                            {{usuariosRanking[2].posicion}}
+                        </h4>
+                        <div style="display: flex; align-items: center;">
+                            <a href="/perfilUsuario/{{usuariosRanking[2].id}}" target='_blank'>
+                                <img src="{{usuariosRanking[2].urlFoto}}" id="foto-perfil">
+                                <h4 style="display: inline-block; margin-left: 10px;">
+                                    {{usuariosRanking[2].nombreUsuario}}
+                                </h4>
+                            </a>
+                        </div>
+                        <h4>
+                            {{usuariosRanking[2].puntosTotales}} EXP
+                        </h4>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center usuario"
+                        *ngFor="let usuario of usuariosRanking.slice(3, 25)">
+                        <h4>
+                            {{usuario.posicion}}
+                        </h4>
+                        <div style="display: flex; align-items: center;">
+                            <a href="/perfilUsuario/{{usuario.id}}" target='_blank'>
+                                <img src="{{usuario.urlFoto}}" id="foto-perfil">
+                                <h4 style="display: inline-block; margin-left: 10px;">
+                                    {{usuario.nombreUsuario}}
+                                </h4>
+                            </a>
+                        </div>
+                        <h4>
+                            {{usuario.puntosTotales}} EXP
+                        </h4>
+                    </div>
+
+                    <hr style="border-width: 3px; color: white; border-radius: 100%;"
+                        *ngIf="usuariosRanking.length > 25">
+
+                    <div class="d-flex justify-content-between align-items-center usuario"
+                        *ngIf="usuariosRanking.length > 25">
+                        <h4>
+                            {{usuariosRanking[25].posicion}}
+                        </h4>
+                        <div style="display: flex; align-items: center;">
+                            <img src="{{usuariosRanking[25].urlFoto}}" id="foto-perfil">
+                            <h4 style="display: inline-block; margin-left: 10px;">
+                                {{usuariosRanking[25].nombreUsuario}}
+                            </h4>
+                        </div>
+                        <h4>
+                            {{usuariosRanking[25].puntosTotales}} EXP
+                        </h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </body>
+
+</ng-container>

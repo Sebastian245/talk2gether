@@ -1,0 +1,19 @@
+<ng-container *ngIf="isChat$ | async; else noChats">
+    <div *ngFor="let chat of chats" class="orden-horizontal mensaje-card" >
+        <div class="sender-info">
+            <img [src]="chat.entities.sender.entity.avatar" alt="Avatar">
+            <div class="orden-vertical">
+                <span>ID: {{chat.entities.sender.entity.uid}}</span>
+                <span>Nombre: {{chat.entities.sender.entity.name}}</span>
+            </div>
+        </div>
+        <div class="message-body">
+            <p>{{ chat.text }}</p>
+            <span>{{ formatTime(chat.sentAt) }}</span>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #noChats>
+    <p>No hay mensajes entre los usuarios seleccionados.</p>
+</ng-template>

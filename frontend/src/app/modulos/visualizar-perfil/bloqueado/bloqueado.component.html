@@ -1,0 +1,14 @@
+<div class="entero">
+    <div class="perfil-nombre">
+        <div class="imagen-perfil"><img class="imagen" [src]=urlFoto id="foto-perfil" /></div>
+        <i class="fa-regular fa-circle-xmark" (click)="redireccionInicio()"></i>
+        <h6 class="nombre">{{nombreUsuario}} {{apellido}}, {{edad}}</h6>
+        <p class="parrafo">
+            Has bloqueado a este
+            usuario, no podrás
+            ver su información
+            hasta desbloquearlo
+        </p>
+        <button class="desbloquear-boton" type="button" (click)="desbloquear()">Desbloquear</button>
+    </div>
+</div>

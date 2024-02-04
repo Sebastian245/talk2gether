@@ -1,0 +1,228 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.forgot-password {
+  text-align: center;
+  width: 100%;
+  color: white;
+  margin-top: 5%;
+  font-weight: bold;
+  font-family: Poppins;
+}
+
+.login-form {
+  width: 750px;
+  height: 540px;
+  padding: 3%;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #2b6a78;
+  position: absolute;
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 3%;
+  color: white;
+  font-weight: bold;
+  font-family: Poppins;
+  font-size: 50px;
+}
+.form-group {
+  margin-bottom: 3%;
+  font-weight: bold;
+  position: relative;
+}
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  font-family: Poppins;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-family: Poppins;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #199de8;
+  color: #fff;
+  font-size: 20px;
+  font-family: Poppins;
+  margin-top: 20px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.password-eyes {
+  position: absolute;
+  right: 5%;
+  top: 52%;
+  color: black;
+  svg {
+    color: black;
+  }
+}
+
+@media screen and (max-width: 1366px) {
+  .login-form {
+    width: 50%;
+    height: auto;
+    padding: 3%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+    margin-top: 6%;
+  }
+}
+@media screen and (max-width: 1280px) and (max-height: 600px) {
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .forgot-password {
+    text-align: center;
+    width: 100%;
+    color: white;
+    margin-top: 5%;
+    font-weight: bold;
+    font-family: Poppins;
+  }
+
+  .login-form {
+    width: auto;
+    height: 75%;
+    padding: 3%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+    margin-top: 8%;
+  }
+
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 3%;
+    color: white;
+    font-weight: bold;
+    font-family: Poppins;
+    font-size: 35px;
+  }
+  .form-group {
+    margin-bottom: 5%;
+    font-weight: bold;
+  }
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 15px;
+    font-family: Poppins;
+  }
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    font-family: Poppins;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #199de8;
+    color: #fff;
+    font-size: 20px;
+    font-family: Poppins;
+    margin-top: 4%;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  .password-eyes {
+    position: absolute;
+    right: 8%;
+    top: 48%;
+
+    svg {
+      color: black;
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) and (max-height: 720px) {
+  .login-form {
+    width: 50%;
+    height: 65%;
+    padding: 3%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+    margin-top: 8%;
+  }
+}
+
+@media screen and (max-width: 800px) and (max-height: 600px) {
+  .login-form {
+    width: auto;
+    height: 65%;
+    padding: 3%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+  }
+  .password-eyes {
+    position: absolute;
+    right: 10%;
+    top: 51%;
+
+    svg {
+      color: black;
+    }
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .login-form {
+    width: 80%;
+    height: auto;
+    padding: 3%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+  }
+
+  .password-eyes {
+    position: absolute;
+    right: 9%;
+    top: 46%;
+
+    svg {
+      color: black;
+    }
+  }
+
+  .form-group {
+    margin-bottom: 10%;
+    font-weight: bold;
+  }
+}

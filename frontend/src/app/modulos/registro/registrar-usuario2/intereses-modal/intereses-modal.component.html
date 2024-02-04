@@ -1,0 +1,20 @@
+<ng-container *ngIf="interesesCargados">
+    <div class="modal-content-interes">
+        <div class="modal-header">
+            <button type="button" class="btn btn-link" (click)="dismissModal()">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+        <div class="intereses">
+            <div *ngFor="let interes of intereses" class="intereses_items">
+                <div [id]="interes.id" class="interes" [ngClass]="{'seleccionado': interes.seleccionado}">
+                    <a (click)="(interesesSeleccionados.length >= 5 && !interes.seleccionado) ? false : seleccionarInteres(interes.id)"
+                        [ngClass]="{'interes-deshabilitado': interesesSeleccionados.length >= 5 && !interes.seleccionado}">
+                        <i [class]="interes.icon"></i>
+                        <p class="interes_name">{{interes.name}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

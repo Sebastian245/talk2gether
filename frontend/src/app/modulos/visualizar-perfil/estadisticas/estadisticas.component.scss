@@ -1,0 +1,117 @@
+.entero {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 85vh;
+  padding: 0;
+  width: 100vw;
+  background-color: #2b6a78;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.boton-cruz {
+  position: absolute;
+  z-index: 1;
+  top: 2rem;
+  right: 2rem;
+}
+
+.perfil-nombre {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  top: -7%;
+  position: absolute;
+  width: 100%;
+}
+
+.imagen {
+  width: 9vw;
+  height: 9vw;
+  object-fit: cover;
+}
+
+.container {
+  overflow-y: auto;
+  max-height: 60vh;
+}
+
+.container::-webkit-scrollbar {
+  width: 8px; /* Ancho del scroll */
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #fefed5; /* Color del "pomo" del scroll */
+  border-radius: 5px; /* Borde redondeado del "pomo" del scroll */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background-color: #cccccc; /* Cambio de color al pasar el mouse */
+}
+
+.container::-webkit-scrollbar-track {
+  background-color: #888888; /* Color de fondo del track */
+  border-radius: 5px; /* Borde redondeado del track */
+}
+
+.nombre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+.imagen-perfil {
+  position: relative;
+  height: 9vw;
+  width: 9vw;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.card {
+  border-radius: 15px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    h5 {
+      margin: 0;
+    }
+    h4 {
+      font-weight: bold;
+      margin: 0;
+    }
+    span {
+      color: #199de8;
+    }
+  }
+}
+
+#myChart {
+  padding: 3px 15px 3px 15px;
+}
+
+@media (max-height: 812px){
+  .entero{
+    height: 80vh;
+  }
+
+  .perfil-nombre{
+    top: -10%;
+  }
+}

@@ -1,0 +1,142 @@
+.posicion-general {
+  top: 115px;
+  position: relative;
+  
+}
+.input-group{
+  width: auto;
+  margin: 0 !important;
+}
+
+.input-group input{
+  display: flex;
+  width: 100%;
+  max-width: 310px;
+  height: auto;
+}
+.boton {
+  background-color: #199DE8;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  color: white;
+  font-weight: bold;
+  font-size:15px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.boton-red {
+  background-color: red;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  color: black;
+  font-weight: bold;
+  font-size:15px;
+  width: 100%;
+  max-width: 350px;
+}
+.boton-ok {
+  background-color: #56A45E;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  color: white;
+  font-weight: bold;
+  width: 100%;
+  max-width: 350px;
+}
+.media{
+  width: 50%;
+}
+
+.orden-horizontal {
+  display: flex;
+  flex-direction: row;
+  column-gap: 25px;
+}
+.orden-horizontal-error {
+  display: flex;
+  flex-direction: row;
+  column-gap: 85px;
+}
+
+
+.orden-vertical {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+
+.letra {
+  font-family: Poppins;
+  font-size: 25px;
+}
+
+
+button {
+  border: 1px solid transparent !important;
+}
+
+.subir {
+  border: 3px solid #199DE8;
+  border-radius: 20px;
+  width: 100%;
+}
+
+.subir-verde {
+  border: 3px solid #56A45E ;
+  border-radius: 20px;
+}
+i{
+  color: #56A45E ;
+}
+
+i {
+  font-size: 35px;
+}
+
+
+
+/* Estilo para el scrollbar en Chrome, Edge y Safari */
+/* Ancho del scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Fondo del scrollbar */
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+/* Color del thumb (barra deslizadora) */
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+/* Estilo para el scrollbar en Firefox */
+/* Ancho del scrollbar */
+html {
+  scrollbar-width: thin;
+}
+
+/* Color del thumb (barra deslizadora) */
+html {
+  scrollbar-color: #888 #f1f1f1;
+}
+
+
+app-reporte-chats-visualizar {
+  height: 60vh;
+  font-family: Poppins;
+  overflow-y: auto;
+}

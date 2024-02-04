@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="cuadrado">
+      <div class="mensaje">
+        <h1>Su cuenta ha sido eliminada por:</h1>
+        <h1 *ngFor="let motivo of motivosReporte">
+          {{motivo}}
+        </h1>
+      <div class="icono">
+        <i class="fa-solid fa-circle-exclamation"></i>
+      </div>
+      <button type="button" (click)="menuPrincipal()">Volver a la página principal</button>
+      </div>
+
+    </div>
+  </div>

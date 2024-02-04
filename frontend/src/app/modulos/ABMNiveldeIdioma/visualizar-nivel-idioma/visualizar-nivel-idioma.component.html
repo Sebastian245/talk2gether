@@ -1,0 +1,43 @@
+<div class="posicion-general">
+    <div class="separacion-tabla-boton">
+      <div class="tabla-scroll">
+        <table class="table table-borderer table-bordered table-striped table-hover">
+          <thead>
+            <tr class="table-color">
+              <th scope="col">#</th>
+              <th scope="col">Nivel de idioma</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let nivelIdioma of nivelIdiomaList ; let i = index">
+              <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{nivelIdioma.nombreNivelIdioma}}</td>
+                <td>
+                  <div class="iconos-orden-tabla">
+                    <ng-container *ngIf="nivelIdioma.fechaHoraFinVigenciaNivelIdioma==null">
+                      <div type="button" (click)="desHabilitarNivelIdioma(nivelIdioma.id,nivelIdioma.nombreNivelIdioma)" ata-toggle="tooltip" title="Deshabilitar">
+                        <i class="fa-solid fa-circle-xmark grande"></i>
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="nivelIdioma.fechaHoraFinVigenciaNivelIdioma!=null">
+                      <div type="button" ata-toggle="tooltip" title="Editar" (click)="modificarNivelIdioma(nivelIdioma.id, nivelIdioma.nombreNivelIdioma)">
+                        <i class="fa-solid fa-pencil grande"></i>
+                      </div>
+                      <div type="button" (click)="habilitarNivelIdioma(nivelIdioma.id,nivelIdioma.nombreNivelIdioma)" ata-toggle="tooltip" title="Habilitar">
+                        <i class="fa-solid fa-circle-check grande"></i>
+                      </div>
+                    </ng-container>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <div class="button-right">
+        <div type="button" class="button-general-anadir grande" (click)="aniadirNivelIdioma()">Añadir  nivel de idioma</div>
+      </div>
+    </div>
+  </div>

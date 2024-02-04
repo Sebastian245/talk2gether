@@ -1,0 +1,639 @@
+.entero {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 85vh;
+  padding: 0;
+  width: 100vw;
+  background-color: #2b6a78;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.imagen {
+  width: 9vw;
+  height: 9vw;
+  object-fit: cover;
+}
+
+.bandera {
+  display: flex;
+  flex-direction: row;
+  row-gap: 5px;
+}
+
+.container-first {
+  position: absolute;
+  display: flex;
+  color: white;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7vw;
+  margin-top: 3%;
+  left: 25%;
+
+  &-miPerfil {
+    position: absolute;
+    display: flex;
+    color: white;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7vw;
+    margin-top: 3%;
+    left: 30%
+  }
+}
+
+.columna {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tamanio {
+  font-size: 3vw;
+
+  &-letra {
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+}
+
+.tamanio-slider {
+  font-size: 3vw;
+
+  &-letra {
+    font-size: 0.8vw;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+}
+
+.container-second {
+  position: absolute;
+  display: flex;
+  color: white;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7vw;
+  margin-top: 3%;
+  left: 65%;
+}
+
+.container-third {
+  position: absolute;
+  display: flex;
+  color: white;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7vw;
+  margin-top: 3%;
+  left: 92%;
+}
+
+.nombre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+.imagen-perfil {
+  position: relative;
+  height: 9vw;
+  width: 9vw;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+.perfil-nombre {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  top: -7%;
+  position: absolute;
+  width: 100%;
+}
+
+.info-perfil {
+  position: absolute;
+  display: flex;
+  color: white;
+  top: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7vw;
+  margin-top: 9%;
+  left: 15%;
+
+  &__idiomas,
+  &__descripcion,
+  &__ranking {
+    height: 43vh;
+    position: relative;
+    width: 20vw;
+    display: flex;
+    background-color: whitesmoke;
+    top: 40px;
+    justify-content: flex-start;
+    border-radius: 20px;
+    filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.25));
+
+    &-detalle {
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      width: 100%;
+
+      &-contenedor {
+        display: flex;
+        flex-direction: column;
+        row-gap: 5px;
+      }
+
+      h2 {
+        margin: 0;
+      }
+    }
+
+    .descripcion-usuario {
+      row-gap: 10px;
+    }
+  }
+}
+
+.ubicacion {
+  padding: 1%;
+  margin-left: 4%;
+  width: 100%;
+}
+
+.ubicacione {
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  width: 100%;
+
+  &-contenedor {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+  }
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.datos-usuario-no-responsive {
+  color: black;
+  font-family: Poppins;
+  font-size: 1.1vw;
+}
+
+.h5-no-responsive {
+
+  color: black;
+  font-size: 1.3vw;
+  font-family: Poppins;
+}
+
+.h5excepcion {
+  text-align: center;
+  color: black;
+  font-size: 1.1vw;
+  width: max-content;
+  font-family: Poppins;
+}
+
+.letra {
+  color: #2b6a78;
+  display: flex;
+  margin-top: 2%;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 2vw;
+}
+
+
+.letra-subtitulo {
+  color: #2b6a78;
+  display: flex;
+  margin-top: 2%;
+  text-align: center;
+  font-family: Poppins;
+  font-weight: bold;
+  font-size: 1.3vw;
+}
+
+.subtitulo {
+  font-size: 1.5vw;
+  color: black;
+}
+
+#menuPerfil {
+  background-color: #fefed5;
+}
+
+.button-left {
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: gray;
+  color: #fff;
+  font-size: 25px;
+  font-family: Poppins;
+  margin-top: 14%;
+  border-radius: 20px;
+  font-weight: bold;
+  position: absolute;
+  left: 8%;
+  bottom: 8%;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.login-buttons {
+  margin-top: 50px;
+  display: flex;
+}
+
+
+// responsive
+.contendor-lg-padre {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.contenedores-lg {
+  background-color: rgb(168 176 168);
+  height: 500px;
+  width: 80vw;
+  margin-top: 4%;
+  border-radius: 65px;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.texto-responsive-ubicacion {
+  position: relative;
+  margin-top: 5%;
+  width: max-content;
+}
+
+.carousel-caption {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  margin-left: 8%;
+}
+
+.h2-responsive {
+  margin-top: 8%;
+  font-size: 6vw;
+  color: black;
+  font-family: Poppins;
+  font-weight: bold;
+}
+
+.h2-responsive-esp {
+  margin-top: 2%;
+  font-size: 5.5vw;
+  color: black;
+  font-family: Poppins;
+  font-weight: bold;
+}
+
+.h2-responsive-esp-seg {
+  margin-top: 25%;
+  font-size: 5.5vw;
+  color: black;
+  font-family: Poppins;
+  font-weight: bold;
+}
+
+.datos-usuario {
+  margin-top: 10%;
+  font-size: 6vw;
+  color: black;
+  font-family: Poppins;
+}
+
+.letra-esp {
+  color: black;
+  display: flex;
+  top: 0;
+  position: absolute;
+  margin-top: 50%;
+  text-align: center;
+  font-family: Poppins;
+  font-size: 4vw;
+}
+
+@media (max-width: 1367px) {
+  .container-first {
+    position: absolute;
+    display: flex;
+    color: white;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7vw;
+    margin-top: 3%;
+    left: 23%;
+
+    &-miPerfil {
+      position: absolute;
+      display: flex;
+      color: white;
+      top: 0;
+      justify-content: space-between;
+      align-items: center;
+      gap: 7vw;
+      margin-top: 3%;
+      left: 30%
+    }
+  }
+
+  .tamanio {
+    font-size: 4vw;
+
+    &-letra {
+      font-size: 1.2vw;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  }
+
+  .tamanio-slider {
+    font-size: 3vw;
+
+    &-letra {
+      font-size: 0.8vw;
+      font-weight: bold;
+      margin-top: 12px;
+    }
+  }
+
+  .imagen-perfil {
+    position: relative;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  .imagen {
+    width: 10vw;
+    height: 10vw;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 767px) {
+  .login-buttons {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 75px;
+    margin: auto !important;
+    align-items: center;
+    background-color: white;
+  }
+
+
+  .contenedor-descripcion {
+    max-width: 50vw;
+  }
+
+  .bandera {
+    display: flex;
+    flex-direction: row;
+    row-gap: 5px;
+  }
+
+  .button-left {
+    position: relative !important;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: gray;
+    color: #fff;
+    font-size: 25px;
+    font-family: Poppins;
+    margin-top: 0;
+    border-radius: 20px;
+    font-weight: bold;
+    width: 92%;
+    left: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .h2-responsive {
+    margin-top: 8%;
+    font-size: 4vw;
+    color: black;
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+  .h2-responsive-esp {
+    margin-top: 2%;
+    font-size: 3.5vw;
+    color: black;
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+  .h2-responsive-esp-seg {
+    margin-top: 25%;
+    font-size: 3.5vw;
+    color: black;
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+  .datos-usuario {
+    margin-top: 10%;
+    font-size: 4vw;
+    color: black;
+    font-family: Poppins;
+  }
+
+  .h5-no-responsive {
+    color: black;
+    font-size: 3vw;
+    font-family: Poppins;
+  }
+
+
+}
+
+@media (max-height: 812px) {
+
+  .contenedores-lg {
+    background-color: rgb(168 176 168);
+    height: 50vh;
+    width: 80vw;
+    margin-top: 4%;
+    border-radius: 65px;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+
+  .entero {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 80vh;
+    padding: 0;
+    width: 100vw;
+    background-color: #2b6a78;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-left {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: gray;
+    color: #fff;
+    font-size: 20px;
+    font-family: Poppins;
+    border-radius: 20px;
+    font-weight: bold;
+    position: absolute;
+    left: 5%;
+    bottom: 8%;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .perfil-nombre {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    top: -10%;
+    position: absolute;
+    width: 100%;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .login-buttons {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    height: 75px;
+    margin: auto !important;
+    align-items: center;
+    background-color: white;
+  }
+
+  .tamanio-slider {
+    font-size: 3vw;
+
+    &-letra {
+      font-size: 0.8vw;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  }
+
+  .contenedor-descripcion {
+    max-width: 50vw;
+  }
+
+  .bandera {
+    display: flex;
+    flex-direction: row;
+    row-gap: 5px;
+  }
+
+  .button-left {
+    position: relative !important;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: gray;
+    color: #fff;
+    font-size: 25px;
+    font-family: Poppins;
+    margin-top: 0;
+    border-radius: 20px;
+    font-weight: bold;
+    width: 92%;
+    left: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .h2-responsive {
+    margin-top: 8%;
+    font-size: 4vw;
+    color: black;
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+  .h2-responsive-esp {
+    margin-top: 2%;
+    font-size: 3.5vw;
+    color: black;
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+  .h2-responsive-esp-seg {
+    margin-top: 25%;
+    font-size: 3.5vw;
+    color: black;
+    font-family: Poppins;
+    font-weight: bold;
+  }
+
+  .datos-usuario {
+    margin-top: 10%;
+    font-size: 4vw;
+    color: black;
+    font-family: Poppins;
+  }
+
+  .h5-no-responsive {
+    color: black;
+    font-size: 3vw;
+    font-family: Poppins;
+  }
+
+
+}

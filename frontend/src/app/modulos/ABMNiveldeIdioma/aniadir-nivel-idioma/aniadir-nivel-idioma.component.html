@@ -1,0 +1,32 @@
+<div class="modal-content-interes">
+  <div class="modal-header">
+    <button type="button" class="btn btn-link grande" (click)="dismissModal()">
+      <i class="far fa-times-circle"></i>
+    </button>
+  </div>
+  <form [formGroup]="nivelIdiomaForm" (ngSubmit)="enviarDatos()" class="formulario-orden">
+    <h2 class="estilo-letra-h2">Añadir nuevo nivel de idioma</h2>
+    <div class="padding">
+      <div class="estilo-letra">
+        <label for="nivelIdioma">Nivel de idioma*</label>
+      </div>
+      <div class="estilo-letra">
+        <input type="text" id="nivelIdioma" formControlName="nivelIdioma" placeholder="Ingresá el nivel de idioma"
+          required />
+      </div>
+      <div>
+        <div *ngIf="nivelIdiomaForm.get('nivelIdioma').hasError('required') && submitForm">
+          <div class="text-error">El nivel de idioma es requerido</div>
+        </div>
+        <div *ngIf="nivelIdiomaForm.get('nivelIdioma').errors?.['soloLetras'] && submitForm">
+          <div class="text-error">Solo se permiten letras y espacios.</div>
+        </div>
+      </div>
+      <div class="botones">
+        <div type="button" class="botones-volver estilo-letra grande" type="button" (click)="dismissModal()">Volver
+        </div>
+        <button class="botones-submit estilo-letra grande" type="submit">Confirmar</button>
+      </div>
+    </div>
+  </form>
+</div>

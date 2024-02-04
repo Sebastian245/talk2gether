@@ -1,0 +1,226 @@
+.posicion-general {
+    top: 115px;
+    position: relative;
+
+    .datos-usuarios {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        row-gap: 10px;
+
+        h4 {
+            span {
+                font-weight: bold;
+            }
+        }
+
+        .fechas {
+            display: flex;
+            flex-direction: row;
+            column-gap: 10px;
+            width: 101%;
+            align-items: center;
+            justify-content: center;
+
+            .fecha {
+                border-radius: 10px;
+                margin-left: 10px;
+                margin-bottom: 3px !important;
+
+                .letra {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                    font-family: 'Poppins';
+                    font-weight: 600;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                input{
+                    border: none;
+                    border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+.fechas__boton {
+    background-color: #199DE8;
+    color: white;
+    border-radius: 20px;
+    width: 15%;
+    padding: 5px;
+    border: none;
+    position: absolute;
+    display: block;
+    right: 0;
+    margin-top: 15px;
+}
+
+th {
+    cursor: pointer;
+}
+
+td {
+    cursor: pointer;
+}
+
+.columna-busqueda {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 25%;
+}
+
+.input-group {
+    display: flex;
+    width: 100% !important;
+}
+
+tr {
+    border: 1px gray;
+}
+
+.numero {
+    position: absolute;
+    top: 20px;
+    right: -9px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    font-family: Poppins;
+    font-size: 20px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-boton {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: Poppins;
+}
+
+.titulo-general {
+    color: black;
+    font-family: Poppins;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.boton {
+    background-color: #199DE8;
+    color: white;
+    border-radius: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
+
+.table {
+    margin-top: 10px;
+    font-size: 25px;
+    font-family: Poppins;
+}
+
+.tabla-scroll {
+    height: 65vh;
+    overflow-y: auto;
+}
+
+thead {
+    position: relative;
+    top: 0;
+    z-index: 1;
+}
+
+.table-color {
+    background-color: #56A45E !important;
+}
+
+.iconos-orden-tabla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    column-gap: 25px;
+}
+
+.button-right {
+    display: flex;
+    justify-content: end;
+    right: 4%;
+    position: relative;
+    font-size: 25px;
+
+}
+
+i {
+    font-size: 35px;
+    color: gold;
+}
+
+.separacion-tabla-boton {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.button-general-anadir {
+    background-color: #199DE8;
+    color: white;
+    border-radius: 20px;
+    padding: 5px;
+}
+
+.input-group {
+    border: 3px solid #199DE8 !important;
+}
+
+@media (max-height: 864px) {
+    .tabla-scroll {
+        height: 57vh;
+        overflow-y: auto;
+    }
+}
+
+/* Estilo para el scrollbar en Chrome, Edge y Safari */
+/* Ancho del scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Fondo del scrollbar */
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Color del thumb (barra deslizadora) */
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 5px;
+}
+
+/* Estilo para el scrollbar en Firefox */
+/* Ancho del scrollbar */
+html {
+    scrollbar-width: thin;
+}
+
+/* Color del thumb (barra deslizadora) */
+html {
+    scrollbar-color: #888 #f1f1f1;
+}

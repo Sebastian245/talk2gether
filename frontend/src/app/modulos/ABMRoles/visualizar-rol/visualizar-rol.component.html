@@ -1,0 +1,50 @@
+<div class="posicion-general">
+    <div class="separacion-tabla-boton">
+      <div class="tabla-scroll">
+        <table class="table table-borderer table-bordered table-striped table-hover">
+          <thead>
+            <tr class="table-color">
+              <th scope="col">#</th>
+              <th scope="col">Roles</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let rol of rolList ; let i = index">
+              <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{rol.nombreRol}}</td>
+                <td>
+                  <ng-container *ngIf="rol.id !=1 && rol.id !=2">
+                    <div class="iconos-orden-tabla">
+                      <ng-container *ngIf="rol.fechaHoraFinVigenciaRol==null">
+                        <div type="button" (click)="desHabilitarRol(rol.id, rol.nombreRol)" ata-toggle="tooltip" title="Deshabilitar">
+                          <i class="fa-solid fa-circle-xmark grande"></i>
+                        </div>
+                      </ng-container>
+                      <ng-container *ngIf="rol.fechaHoraFinVigenciaRol!=null">
+                        <div type="button" ata-toggle="tooltip" title="Editar" (click)="modificarRol(rol.id, rol.nombreRol)">
+                          <i class="fa-solid fa-pencil grande"></i>
+                        </div>
+                        <div type="button" (click)="habilitarRol(rol.id, rol.nombreRol)" ata-toggle="tooltip" title="Habilitar">
+                          <i class="fa-solid fa-circle-check grande"></i>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </ng-container>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <div class="orden-horizontal">
+        <div class="button-right">
+          <div type="button" class="button-general-anadir grande" (click)="modificarPermisos()">Administrar permisos</div>
+        </div>
+        <div class="button-right">
+          <div type="button" class="button-general-anadir grande" (click)="aniadirRol()">Añadir rol</div>
+        </div>
+      </div>
+    </div>
+  </div>

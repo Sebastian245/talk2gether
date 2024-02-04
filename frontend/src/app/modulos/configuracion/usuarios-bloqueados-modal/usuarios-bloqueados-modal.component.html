@@ -1,0 +1,45 @@
+<ng-container *ngIf="flag">
+    <div class="modal-content-usuarios-bloqueados">
+        <div class="modal-header">
+            <button type="button" class="btn btn-link" (click)="dismissModal()">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+
+        <div class="modal-body-content">
+            <h3>Usuarios Bloqueados</h3>
+        </div>
+
+        <ng-container *ngIf="!cargando; else showSpinner">
+            <div class="modal-body-content">
+                <div class="modal-body-content__list">
+                    <div *ngIf="listaBloqueados.length === 0">
+                        <div class="modal-body-content__list-items__letra">
+                            No hay usuarios bloqueados
+                        </div>
+                    </div>
+                    <div *ngFor="let usuario of listaBloqueados" class="modal-body-content__list-items grande">
+                        <a (click)="visitarPerfil(usuario.idCuenta)" class="modal-body-content__list-items-link">
+                            <div class="modal-body-content__list-items-image">
+                                <img [src]="usuario.urlFoto" alt="">
+                            </div>
+                            <div class="modal-body-content__list-items-data">
+                                <div class="modal-body-content__list-items-nombre">
+                                    {{usuario.nombre}}
+                                </div>
+                                <div class="modal-body-content__list-items-apellido">
+                                    {{usuario.apellido}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+        <ng-template #showSpinner>
+            <app-spinner [showTinySpinner]="cargando"></app-spinner>
+        </ng-template>
+
+    </div>
+</ng-container>

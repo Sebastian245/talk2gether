@@ -1,0 +1,100 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.cuadrado {
+  border-radius: 20px;
+  background-color: orange;
+  height: auto;
+  width: 65%;
+  margin-top: 6%;
+}
+
+.mensaje {
+  padding: 5%;
+  h1 {
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    font-family: Poppins;
+  }
+}
+.icono {
+  color: white;
+  font-size: 10vw;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  font-family: Poppins;
+  margin-top: 32px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+
+@media screen and (max-width: 1366px) {
+  .mensaje {
+    padding: 5%;
+    h1 {
+      color: white;
+      font-size: 35px;
+      font-weight: bold;
+      font-family: Poppins;
+    }
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1680px) {
+  .icono {
+    color: white;
+    font-size: 7rem;
+    align-items: center;
+    height: auto;
+  }
+  .cuadrado {
+    border-radius: 20px;
+    background-color: orange;
+    height: auto;
+    width: 65%;
+    margin-top: 6%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mensaje {
+    padding: 5%;
+    h1 {
+      color: white;
+      font-size: 25px;
+      font-weight: bold;
+      font-family: Poppins;
+    }
+  }
+  .icono {
+    color: white;
+    font-size: 500%;
+    align-items: center;
+    height: auto;
+  }
+
+  .cuadrado {
+    border-radius: 20px;
+    background-color: orange;
+    height: auto;
+    width: 90%;
+    margin-top: 6%;
+  }
+}

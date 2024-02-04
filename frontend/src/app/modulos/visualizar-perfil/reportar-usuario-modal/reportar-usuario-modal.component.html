@@ -1,0 +1,39 @@
+<div class="modal-content-reportar-usuario">
+    <div class="modal-header d-flex my-2">
+        <div>
+            <h3>Reportar Usuario</h3>
+        </div>
+        <div class="ms-auto">
+            <button type="button" class="btn btn-link" (click)="dismissModal()">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </button>
+        </div>
+    </div>
+    <div class="container px-4">
+        <div>
+            <label class="titles" for="motivos">Motivos*</label>
+            <div>
+                <ng-select [items]="motivoList" [(ngModel)]="motivosSeleccionados" [multiple]="true"
+                    placeholder="Seleccione los motivos...">
+                </ng-select>
+            </div>
+            <div *ngIf="motivosSeleccionados.length == 0">
+                <p class="text-error">Debe seleccionar al menos un motivo.</p>
+            </div>
+        </div>
+
+        <div class="my-2">
+            <label class="titles" for="descripcion">Descripción</label>
+            <textarea class="form-control" id="descripcion" [(ngModel)]="descripcionContent"
+                placeholder="Describa el problema detalladamente..."></textarea>
+        </div>
+        <div *ngIf="descripcionContent.length > 350">
+            <p class="text-error">La descripción no puede exceder los 350 caracteres.</p>
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <button id="boton-enviar" type="submit" class="btn btn-primary w-100 my-3" data-toggle="modal"
+                data-target="#exampleModal" (click)="reportar()"
+                [disabled]="motivosSeleccionados.length == 0 || descripcionContent.length > 350">Enviar</button>
+        </div>
+    </div>

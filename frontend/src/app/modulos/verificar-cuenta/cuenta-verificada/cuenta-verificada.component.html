@@ -1,0 +1,43 @@
+<ng-container *ngIf="verificando">
+
+</ng-container>
+
+<ng-container *ngIf="verificacionRealizada && verificacionCorrecta && !verificando">
+
+  <body>
+    <div class="container">
+      <div class="d-flex justify-content-center flex-column align-items-center">
+        <div class="icono">
+          <i class="fa-solid fa-check" id="icono"></i>
+        </div>
+        <div class="mensaje">
+          <h2>¡Felicitaciones! Su cuenta ha sido verificada correctamente</h2>
+        </div>
+        <div class="boton">
+          <button id="boton" class="btn btn-primary" (click)="irAPantallaPrincipal()">Ir a la página
+            principal</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</ng-container>
+
+<ng-container *ngIf="verificacionRealizada && !verificacionCorrecta && !verificando">
+
+  <body>
+    <div class="container">
+      <div class="d-flex justify-content-center flex-column align-items-center">
+        <div class="icono">
+          <i class="fa-solid fa-circle-exclamation" id="icono"></i>
+        </div>
+        <div class="mensaje">
+          <h2>Hubo un error en la verificación de su cuenta. Intente nuevamente.</h2>
+        </div>
+        <div class="boton">
+          <button id="boton" class="btn btn-primary" (click)="irAPantallaPrincipal()">Ir a la página
+            principal</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</ng-container>

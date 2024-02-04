@@ -1,0 +1,155 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header  " type="button" (click)="inicio()">
+            <img src="../../../assets/talk2gether.svg" height="70px"
+                class="d-inline-block align-top d-none d-md-block grande" alt="" />
+        </div>
+
+        <ul class="list-unstyled components">
+            <li>
+                <a type="button" (click)="isMenuOpenRecuperate = !isMenuOpenRecuperate"
+                    [class]="isMenuOpenRecuperate ? 'active' : ''" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">Copia de seguridad</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu" *ngIf="isMenuOpenRecuperate">
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirBackUp()">Backup y Recuperación</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a type="button" (click)="isMenuOpenDashboard = !isMenuOpenDashboard"
+                    [class]="isMenuOpenDashboard ? 'active' : ''" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">Dashboard</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu" *ngIf="isMenuOpenDashboard">
+                    <li class="button__submenu"> 
+                        <a type="button" (click)="dirigirDashboard()">General</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a type="button" (click)="isMenuOpenUsuarios = !isMenuOpenUsuarios"
+                    [class]="isMenuOpenUsuarios ? 'active' : ''" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">Usuarios</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu" *ngIf="isMenuOpenUsuarios">
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarUsuarios()">Administrar usuarios</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a type="button" (click)="isMenuOpenReportes = !isMenuOpenReportes"
+                    [class]="isMenuOpenReportes ? 'active' : ''" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">Reportes</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu" *ngIf="isMenuOpenReportes">
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarReporteUsuarios()">Reportes de usuarios</a>
+                    </li>
+                </ul>
+            </li>
+            <!-- <li>
+                <a type="button" (click)="isMenuOpenGamificacion = !isMenuOpenGamificacion"
+                    [class]="isMenuOpenGamificacion ? 'active' : ''" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">Gaminificación</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu" *ngIf="isMenuOpenGamificacion">
+
+                </ul>
+            </li> -->
+            <li>
+                <a type="button" (click)="isMenuOpenParametros = !isMenuOpenParametros"
+                    [class]="isMenuOpenParametros ? 'active' : ''" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">Parámetros</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu" *ngIf="isMenuOpenParametros">
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarPais()">Países</a>
+                    </li>
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarIdiomas()">Idiomas</a>
+                    </li>
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarNivelIdioma()">Nivel de idioma</a>
+                    </li>
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarInteres()">Intereses</a>
+                    </li>
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarMotivos()">Motivos de reporte</a>
+                    </li>
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarRoles()">Roles</a>
+                    </li>
+                    <li class="button__submenu">
+                        <a type="button" (click)="dirigirAdministrarPuntosPorActividad()">Puntos por actividad</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="list-unstyled CTAs">
+            <li class="button__submenu">
+                <a class="download color" (click)="descargarManual()">Descargar manual de administrador</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="content">
+        <div class="boton-menuDesplegable">
+            <button type="button" id="sidebarCollapse" class="btn btn-info grande"
+                (click)="abrirSidebar(sidebarAbierto)">
+                <i class="fas fa-align-left"></i>
+                <span>Menu</span>
+            </button>
+        </div>
+        <ng-container *ngIf="mostrarPais == true">
+            <app-visualizar-pais></app-visualizar-pais>
+        </ng-container>
+        <ng-container *ngIf="mostrarIdioma == true">
+            <app-visualizar-idioma></app-visualizar-idioma>
+        </ng-container>
+        <ng-container *ngIf="mostrarInteres == true">
+            <app-visualizar-interes></app-visualizar-interes>
+        </ng-container>
+        <ng-container *ngIf="mostrarNivelIdioma == true">
+            <app-visualizar-nivel-idioma></app-visualizar-nivel-idioma>
+        </ng-container>
+        <!-- TO_DO YAPA -->
+        <!-- <ng-container *ngIf="mostrarRecuperacion == true">
+            <app-recuperacion-back-up></app-recuperacion-back-up>
+        </ng-container> -->
+        <ng-container *ngIf="mostrarUsuario == true">
+            <app-visualizar-usuario></app-visualizar-usuario>
+        </ng-container>
+        <ng-container *ngIf="mostrarCrearUsuario == true">
+            <app-aniadir-usuario></app-aniadir-usuario>
+        </ng-container>
+        <ng-container *ngIf="mostrarMotivos == true">
+            <app-visualizar-motivo></app-visualizar-motivo>
+        </ng-container>
+        <ng-container *ngIf="mostrarRoles == true">
+            <app-visualizar-rol></app-visualizar-rol>
+        </ng-container>
+        <ng-container *ngIf="reportesUsuarios == true">
+            <app-reporte-usuario></app-reporte-usuario>
+        </ng-container>
+        <!-- TO_DO YAPA -->
+        <!-- <ng-container *ngIf="mostrarReporteChats == true">
+            <app-mostrar-reporte-usuario-chat></app-mostrar-reporte-usuario-chat>
+        </ng-container> -->
+        <ng-container *ngIf="mostrarBackUpDB == true">
+            <app-backup-db></app-backup-db>
+        </ng-container>
+        <ng-container *ngIf="mostrarDashBoard == true">
+            <app-dashboard-administrador></app-dashboard-administrador>
+        </ng-container>
+        <ng-container *ngIf="mostrarPermisos == true">
+            <app-permisos></app-permisos>
+        </ng-container>
+        <ng-container *ngIf="mostrarCalificaciones == true">
+            <app-visualizar-calificacion></app-visualizar-calificacion>
+        </ng-container>
+        <ng-container *ngIf="mostrarPuntosPorActividad == true">
+            <app-visualizar-puntos></app-visualizar-puntos>
+        </ng-container>
+
+    </div>
+
+</div>

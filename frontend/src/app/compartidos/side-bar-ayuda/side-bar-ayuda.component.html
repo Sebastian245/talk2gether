@@ -1,0 +1,108 @@
+<body>
+    <div class="organizacion-pantalla">
+        <div class="list-group">
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqIntroduccion()">Introducción a Talk2gether</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqRegistro()">Registro</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqVerificarCuenta()">Verificar
+                cuenta</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqCambiarContrasenia()">Cambiar contraseña</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqReferirAmigos()">Referir
+                amigos</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqRecuperarContrasenia()">Recuperar
+                contraseña</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqBuscarAprendiz()">Búsqueda de aprendiz</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqVideollamada()">Creación de salas</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqUnirseVideollamada()">Unirse a videollamadas</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqReportarUsuario()">Reportar a un aprendiz</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqBloquearUsuario()">Bloquear y desbloquear a un aprendiz</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqChat()">Chat</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqPerfilUsuario()">Perfil de usuario</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqRanking()">Consultar ranking</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqEditarPerfil()">Editar mi perfil</button>
+            <button type="button" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="redirigirFaqEliminarCuenta()">Eliminar mi cuenta</button>
+            <button type="button" id="descarga" class="list-group-item list-group-item-action list-group-item-info"
+                (click)="descargarManual()">Descargar manual</button>
+        </div>
+
+        <ng-container *ngIf="mostrarAyudaIntroduccion">
+            <app-preg-freq-introduccion></app-preg-freq-introduccion>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaRegistro">
+            <app-preg-freq-registro></app-preg-freq-registro>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaVerificarCuenta">
+            <app-preg-freq-verificar-cuenta></app-preg-freq-verificar-cuenta>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaCambiarContrasenia">
+            <app-preg-freq-cambiar-contrasenia></app-preg-freq-cambiar-contrasenia>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaReferirAmigos">
+            <app-preg-freq-referir-amigos></app-preg-freq-referir-amigos>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaRecuperarContrasenia">
+            <app-preg-freq-recuperar-contrasenia></app-preg-freq-recuperar-contrasenia>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaBusquedaAprendiz">
+            <app-preg-freq-busqueda-aprendiz></app-preg-freq-busqueda-aprendiz>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaCrearVideollamada">
+            <app-preg-freq-crear-videollamada></app-preg-freq-crear-videollamada>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaUnirseVideollamada">
+            <app-preg-freq-unirse-videollamada></app-preg-freq-unirse-videollamada>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaReportarUsuario">
+            <app-preg-freq-reportar-aprendiz></app-preg-freq-reportar-aprendiz>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaBloquearUsuario">
+            <app-preg-freq-bloquear-aprendiz></app-preg-freq-bloquear-aprendiz>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaChat">
+            <app-preg-freq-chat></app-preg-freq-chat>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaPerfilUsuario">
+            <app-preg-freq-perfil-usuario></app-preg-freq-perfil-usuario>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaRanking">
+            <app-preg-freq-ranking></app-preg-freq-ranking>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaEditarPerfil">
+            <app-preg-freq-editar-perfil></app-preg-freq-editar-perfil>
+        </ng-container>
+
+        <ng-container *ngIf="mostrarAyudaEliminarCuenta">
+            <app-preg-freq-eliminar-cuenta></app-preg-freq-eliminar-cuenta>
+        </ng-container>
+
+    </div>
+</body>

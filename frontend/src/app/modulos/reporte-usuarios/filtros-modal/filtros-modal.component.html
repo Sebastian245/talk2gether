@@ -1,0 +1,20 @@
+<div class="modal-content-interes tamanio-popup">
+    <div class="modal-header">
+        <button type="button" class="btn btn-link" (click)="dismissModalCruz()">
+            <i class="far fa-times-circle grande"></i>
+        </button>
+    </div>
+    <h2 class="estilo-letra-h2">Filtro por motivo</h2>
+    <div class="vertical">
+        <div>
+            <select class="form-select" id="motivo" style="font-family: Poppins; color: black;">
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option *ngFor="let motivo of listaMotivos" [value]= "motivo['id']">{{ motivo['nombreMotivo'] }}</option>
+            </select>
+        </div>
+        <div class="botones">
+            <div type="button" class="botones-volver estilo-letra grande" type="button" (click)="dismissModal()">Volver</div>
+            <button class="botones-submit estilo-letra grande" type="submit" (click)="filtrar()">Filtrar</button>
+        </div>
+    </div>
+</div>

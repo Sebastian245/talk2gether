@@ -1,0 +1,7 @@
+<ng-container *ngIf="!mostrarMsjExitoso; else msjExitoso">
+    <app-recuperar-contrasenia-form [errorService]="submitError" [messageError]="mensajeError" (dataEmail)="enviarMail($event)" ></app-recuperar-contrasenia-form>
+</ng-container>
+
+<ng-template #msjExitoso>
+    <app-recuperar-contrasenia-confirmacion [receptorEmail]="emailGuardado" (enviarEmail)="reenviarMail($event)"></app-recuperar-contrasenia-confirmacion>
+</ng-template>

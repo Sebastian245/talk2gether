@@ -1,0 +1,131 @@
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6" style="padding: 2%; padding-left: 4%; padding-bottom: 0;">
+        <h2>Datos Personales</h2>
+
+        <form [formGroup]="registroForm">
+          <div class="form-group">
+            <label class="titles" for="name">Nombre*</label>
+            <input type="text" id="nombreUsuario" class="form-control" formControlName="nombreUsuario"
+              placeholder="Nombre" style="font-family: Poppins; color: black;">
+            <div *ngIf="registroForm.get('nombreUsuario').hasError('pattern')">
+              <p class="text-error">
+                El nombre ingresado no es válido.
+              </p>
+            </div>
+            <div
+              *ngIf="registroForm.get('nombreUsuario').hasError('required') && registroForm.get('nombreUsuario').touched">
+              <p class="text-error">Debe completar este campo.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="titles" for="name">Apellido*</label>
+            <input type="text" class="form-control" formControlName="apellidoUsuario" id="apellido"
+              placeholder="Apellido" style="font-family: Poppins; color: black;">
+            <div *ngIf="registroForm.get('apellidoUsuario').hasError('pattern')">
+              <p class="text-error">
+                El apellido ingresado no es válido.
+              </p>
+            </div>
+            <div
+              *ngIf="registroForm.get('apellidoUsuario').hasError('required') && registroForm.get('apellidoUsuario').touched">
+              <p class="text-error">Debe completar este campo.</p>
+            </div>
+
+          </div>
+
+          <div class="form-group">
+            <label class="titles" for="name">Fecha de Nacimiento*</label>
+            <div>
+              <input type="date" class="form-control" id="nacimiento" min="1940-01-01"
+                style="border-radius: 8px; border:0;" (click)="elegirFecha()" onkeydown="return false">
+              <div *ngIf="fechaVacia && registroForm.get('fechaNacimiento').touched">
+                <p class="text-error">
+                  Este campo es obligatorio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="col-md-6" style="padding: 2%; padding-right: 4%; padding-bottom: 0;">
+        <h2>&#8203;</h2>
+
+        <form [formGroup]="registroForm">
+          <div class="form-group">
+            <label class="titles" for="email">Correo electrónico*</label>
+            <input type="email" class="form-control" formControlName="correo" id="email"
+              placeholder="Correo electrónico" style="font-family: Poppins; color: black;">
+            <div *ngIf="registroForm.get('correo').hasError('pattern')">
+              <p class="text-error">
+                El texto ingresado no es un correo válido.
+              </p>
+            </div>
+            <div *ngIf="registroForm.get('correo').hasError('required') && registroForm.get('correo').touched">
+              <p class="text-error">Debe completar este campo.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="titles" for="password">Contraseña*</label>
+            <div class="password-input-container">
+              <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" formControlName="contrasenia"
+                id="password1" placeholder="Ingrese su contraseña" style="font-family: Poppins; color: black;">
+              <a class="password-eyes" (click)="togglePasswordView()">
+                <span *ngIf="showPassword"><i class="fas fa-eye"></i></span>
+                <span *ngIf="!showPassword"><i class="fas fa-eye-slash"></i></span>
+              </a>
+            </div>
+            <div *ngIf="registroForm.get('contrasenia').hasError('strong') &&
+             registroForm.get('contrasenia').touched && registroForm.get('contrasenia').value.length >0">
+              <p class="text-error">
+                La contraseña debe contener mínimo 8 caracteres, una mayúscula y un número.
+              </p>
+            </div>
+            <div
+              *ngIf="registroForm.get('contrasenia').hasError('required') && registroForm.get('contrasenia').touched">
+              <p class="text-error">La contraseña es obligatoria.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="titles" for="password">Repetir Contraseña*</label>
+            <div class="password-input-container">
+              <input type="{{ showRepeatPassword ? 'text' : 'password' }}" class="form-control"
+                formControlName="contrasenia2" id="password2" pattern="{{ registroForm.get('contrasenia').value }}"
+                placeholder="Ingrese su contraseña" style="font-family: Poppins; color: black;">
+              <a class="password-eyes" (click)="toggleRepeatPasswordView()">
+                <span *ngIf="showRepeatPassword"><i class="fas fa-eye"></i></span>
+                <span *ngIf="!showRepeatPassword"><i class="fas fa-eye-slash"></i></span>
+              </a>
+            </div>
+            <div *ngIf="registroForm.get('contrasenia').value != registroForm.get('contrasenia2').value
+              && registroForm.get('contrasenia2').touched">
+              <p class="text-error">
+                Las contraseñas no coinciden.
+              </p>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="d-flex" style="padding-bottom: 3%; padding-left: 4%; padding-right: 4%;">
+        <div>
+          <button id="boton-volver" type="submit" class="btn btn-primary" (click)="volver()">Volver</button>
+        </div>
+
+        <div class="ms-auto">
+          <button id="boton-siguiente" type="submit" class="btn btn-primary" [disabled]="registroForm.invalid"
+            (click)="siguientePantalla()">Siguiente</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</body>

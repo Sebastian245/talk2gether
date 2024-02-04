@@ -1,0 +1,45 @@
+<div class="posicion-general">
+    <div class="separacion-tabla-boton">
+      <div class="tabla-scroll">
+        <table class="table table-borderer table-bordered table-striped table-hover">
+          <thead>
+            <tr class="table-color">
+              <th scope="col">#</th>
+              <th scope="col">Intereses</th>
+              <th scope="col">Icono</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let interes of interesList ; let i = index">
+              <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{interes.nombreInteres}}</td>
+                <td> <div class="iconos-orden-tabla"><i [class]="interes.urlInteres"></i></div></td>
+                <td>
+                  <div class="iconos-orden-tabla">
+                    <ng-container *ngIf="interes.fechaHoraFinVigenciaInteres==null">
+                      <div type="button" (click)="desHabilitarInteres(interes.id, interes.nombreInteres)" ata-toggle="tooltip" title="Deshabilitar">
+                        <i class="fa-solid fa-circle-xmark grande"></i>
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="interes.fechaHoraFinVigenciaInteres!=null">
+                      <div type="button" ata-toggle="tooltip" title="Editar" (click)="modificarInteres(interes.id, interes.nombreInteres, interes.urlInteres)">
+                        <i class="fa-solid fa-pencil grande"></i>
+                      </div>
+                      <div type="button" (click)="habilitarInteres(interes.id, interes.nombreInteres)" ata-toggle="tooltip" title="Habilitar">
+                        <i class="fa-solid fa-circle-check grande"></i>
+                      </div>
+                    </ng-container>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <div class="button-right">
+        <div type="button" class="button-general-anadir grande" (click)="aniadirInteres()">Añadir interés</div>
+      </div>
+    </div>
+  </div>

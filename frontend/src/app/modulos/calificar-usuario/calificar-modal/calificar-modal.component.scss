@@ -1,0 +1,126 @@
+.modal-content {
+    background-color: #2b6a78 !important;
+    width: auto !important;
+
+}
+
+.modal-dialog {
+    max-width: var(--bs-modal-width) !important;
+}
+app-calificar-modal {
+
+    .centrado {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    
+        &__tamanio {
+            font-size: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    
+    h2 {
+        color: white;
+        font-family: Poppins;
+        font-weight: bold;
+        font-size: 25px;
+    }
+    
+    .botones {
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        flex-direction: row;
+        column-gap: 50px;
+        width: auto;
+        padding: 20px;
+    
+        &-submit {
+            background-color: #199DE8;
+            border-radius: 20px;
+            font-family: Poppins;
+            color: white;
+            width: auto;
+            padding: 10px;
+            font-size: 20px;
+            position: relative;
+            right: 45px;
+        }
+    
+    }
+    
+    .columna {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 15px;
+        padding: 30px;
+    }
+    
+    .columna-error-boton {
+        display: flex;
+        flex-direction: column;
+        row-gap: 9px;
+    }
+    
+    .modal-content-calificar {
+        background-color: #2b6a78;
+        border-radius: 20px !important;
+        width: 100%;
+    
+        .modal-header {
+            border: none;
+            justify-content: end;
+            padding-bottom: 0;
+        }
+    }
+    
+    i {
+        font-size: 30px;
+        color: white;
+    }
+    
+    #form {
+        width: 250px;
+        margin: 0 auto;
+        height: 50px;
+    }
+    
+    #form p {
+        text-align: center;
+    }
+    
+    #form label {
+        font-size: 20px;
+    }
+    
+    input[type="radio"] {
+        display: none;
+    }
+    
+    label {
+        color: grey;
+    }
+    
+    .clasificacion {
+        direction: rtl;
+        unicode-bidi: bidi-override;
+    }
+    
+    label:hover,
+    label:hover~label {
+        color: orange;
+    }
+    
+    input[type="radio"]:checked~label {
+        color: orange;
+    }
+
+}
+
+
+

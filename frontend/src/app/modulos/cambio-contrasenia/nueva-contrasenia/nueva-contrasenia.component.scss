@@ -1,0 +1,214 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  width: auto;
+  height: 580px;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #2b6a78;
+  position: relative;
+
+  label {
+    position: relative;
+  }
+}
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+  font-family: Poppins;
+  font-size: 50px;
+}
+
+.form-group {
+  margin-top: 60px;
+  margin-bottom: 32px;
+  font-weight: bold;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: white;
+  font-size: 20px;
+  font-family: Poppins;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  font-family: Poppins;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #199de8;
+  color: #fff;
+  font-size: 20px;
+  font-family: Poppins;
+  margin-top: 45px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.text-error {
+  color: #ff9234;
+  font-family: Poppins;
+  font-weight: bold;
+  padding-top: 2px;
+
+  &-input {
+    position: absolute;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &-input-general {
+    margin-top: 42px;
+    position: absolute;
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  &-response {
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    width: 100%;
+  }
+  &-input-igual {
+    margin-top: 20px;
+    position: absolute;
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+
+.password-eyes {
+  position: absolute;
+  right: 3%;
+  top: 50%;
+  color: black;
+  svg {
+    color: black;
+  }
+}
+
+
+@media screen and (max-height: 900px) {
+  .login-form {
+    width: auto;
+    height: auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+    margin-top: 6%;
+  
+    label {
+      position: relative;
+    }
+  }
+  .form-group {
+    margin-top: 30px;
+    margin-bottom: 32px;
+    font-weight: bold;
+  }
+
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+    font-family: Poppins;
+    font-size: 30px;
+  }
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 15px;
+    font-family: Poppins;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #199de8;
+    color: #fff;
+    font-size: 20px;
+    font-family: Poppins;
+    margin-top: 55px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .login-form {
+    width: 60%;
+    height: 70%;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+    margin-top: 8%;
+  
+    label {
+      position: relative;
+    }
+  }
+  .form-group {
+    margin-top: 30px;
+    margin-bottom: 32px;
+    font-weight: bold;
+  }
+
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+    font-family: Poppins;
+    font-size: 30px;
+  }
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 15px;
+    font-family: Poppins;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #199de8;
+    color: #fff;
+    font-size: 10px;
+    font-family: Poppins;
+    margin-top: 45px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+}

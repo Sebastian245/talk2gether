@@ -1,0 +1,250 @@
+<div class="container-informacion">
+    <div class="container">
+        <div class="d-flex justify-content-around">
+            <div>
+                <form [formGroup]="editarUsuarioForm">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <label class="titles" for="name">Nombre</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" id="nombreUsuario" class="form-control" formControlName="nombreUsuario"
+                                placeholder="Nombre" style="font-family: Poppins; color: black;">
+                        </div>
+
+                        <div *ngIf="editarUsuarioForm.get('nombreUsuario').hasError('pattern')">
+                            <p class="text-error">
+                                El texto ingresado no válido.
+                            </p>
+                        </div>
+                        <div
+                            *ngIf="editarUsuarioForm.get('nombreUsuario').hasError('required') && editarUsuarioForm.get('nombreUsuario').touched">
+                            <p class="text-error">Debe completar este campo.</p>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <label class="titles" for="name">Apellido</label>
+                        </div>
+                        <div class="col-auto">
+                            <input type="text" class="form-control" formControlName="apellidoUsuario" id="apellido"
+                                placeholder="Apellido" style="font-family: Poppins; color: black;">
+                        </div>
+                        <div *ngIf="editarUsuarioForm.get('apellidoUsuario').hasError('pattern')">
+                            <p class="text-error">
+                                El texto ingresado no válido.
+                            </p>
+                        </div>
+                        <div
+                            *ngIf="editarUsuarioForm.get('apellidoUsuario').hasError('required') && editarUsuarioForm.get('apellidoUsuario').touched">
+                            <p class="text-error">Debe completar este campo.</p>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <label id="titles" for="name">Descripción</label>
+                        </div>
+                        <div class="col-auto"><textarea class="form-control" id="descripcionUsuario"
+                                formControlName="descripcionUsuario"></textarea></div>
+                        <div>
+
+                            <div *ngIf="editarUsuarioForm.get('descripcionUsuario').hasError('maxlength')">
+                                <p class="text-error">
+                                    Máximo 200 caracteres.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-auto"><label class="titles" for="name">Fecha de Nacimiento</label></div>
+                        <div class="col-auto"><input type="date" class="form-control" id="nacimiento" min="1940-01-01"
+                                style="border-radius: 8px; border:0;" (click)="elegirFecha()" onkeydown="return false">
+                        </div>
+                        <div>
+
+                            <div *ngIf="fechaVacia && editarUsuarioForm.get('fechaNacimiento').touched">
+                                <p class="text-error">
+                                    Este campo es obligatorio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-auto"><label id="titles" for="name">País</label></div>
+                        <div class="col-auto">
+                            <select class="form-select" formControlName="pais" id="pais"
+                                style="font-family: Poppins; color: black;" (click)="validarPais()">
+                                <option value="default" disabled selected>Selecciona un país</option>
+                                <option *ngFor="let pais of listaPaises" [value]="pais">{{ pais }}</option>
+                            </select>
+                        </div>
+                        <div>
+                            <div *ngIf="paisVacio">
+                                <p class="text-error">
+                                    Este campo es obligatorio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <label id="titles" for="password">Intereses</label>
+                        </div>
+                        <!-- Botón para seleccionar intereses -->
+                        <div class="col-auto  intereses-items">
+                            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal"
+                                (click)="openModal()">
+                                <div class="intereses-items__show">
+                                    <ng-container *ngIf="intereses.length > 0; else interesesVacio">
+                                        <div *ngFor="let interes of intereses; let i = index">
+                                            <span *ngIf="intereses[i-1]">, </span>
+                                            <span>{{interes.name}}</span>
+                                        </div>
+                                    </ng-container>
+                                    <ng-template #interesesVacio>
+                                        <span>Intereses</span>
+                                    </ng-template>
+                                </div>
+                                <span style="margin-left: 10px;">{{intereses.length}}/5</span>
+                            </button>
+                        </div>
+                        <div *ngIf="intereses.length == 0 && editarUsuarioForm.get('intereses').touched">
+                            <p class="text-error">
+                                Debe seleccionar al menos un interés.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+
+                            <label id="titles" for="name">Idioma Nativo</label>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" formControlName="idiomaNativo" id="idiomaNativo"
+                                style="font-family: Poppins; color: black;" (click)="validarIdiomaNativo()">
+                                <option value="default" disabled selected>Selecciona tu idioma nativo</option>
+                                <option *ngFor="let idiomaNativo of listaIdiomas" [value]="idiomaNativo">{{
+                                    idiomaNativo
+                                    }}</option>
+                            </select>
+                        </div>
+                        <div>
+
+                            <div *ngIf="idiomaNativoVacio">
+                                <p class="text-error">
+                                    Este campo es obligatorio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+
+                            <label id="titles" for="name">Idioma a aprender</label>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" formControlName="idiomaAprendiz" id="idiomaAprendiz"
+                                style="font-family: Poppins; color: black;" (click)="validarIdiomaAprendiz()">
+                                <option value="default" disabled selected>Selecciona su idioma a aprender</option>
+                                <option *ngFor="let idiomaAprendiz of listaIdiomas" [value]="idiomaAprendiz">{{
+                                    idiomaAprendiz }}
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+
+                            <div *ngIf="idiomaAprendizVacio">
+                                <p class="text-error">
+                                    Este campo es obligatorio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+
+                            <label id="titles" for="name">Nivel de idioma</label>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" formControlName="nivelIdioma" id="nivelIdioma"
+                                style="font-family: Poppins; color: black;" (click)="validarNivelIdioma()">
+                                <option value="default" disabled selected>Selecciona su nivel de idioma</option>
+                                <option *ngFor="let nivelIdioma of listaNivelesIdiomas" [value]="nivelIdioma">{{
+                                    nivelIdioma }}</option>
+                            </select>
+                        </div>
+                        <div>
+
+                            <div *ngIf="nivelIdiomaVacio">
+                                <p class="text-error">
+                                    Este campo es obligatorio.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="ms-auto">
+                <form [formGroup]="editarUsuarioForm">
+                    <div>
+                        <div>
+                            <label id="titles" for="file">
+                                <div class="imagen-perfil">
+                                    <img class="imagen" src="{{ imageSrc || datosUsuario.urlFoto }}" id="foto-perfil" />
+                                    <div class="overlay">
+                                        <i class="icon fa-solid fa-pen-to-square" style="color: #ffffff;"></i>
+                                    </div>
+                                </div>
+                            </label>
+                        </div>
+                        <div>
+                            <input type="file" id="file" accept="image/jpg, image/jpeg, image/png" class="form-control"
+                                formControlName="urlFoto" (change)="onFileSelected($event)" style="max-width: 20vw;">
+                        </div>
+                        <div>
+                            <div *ngIf=" editarUsuarioForm.get('urlFoto').hasError('required') &&
+                                editarUsuarioForm.get('urlFoto').touched">
+                                <p class="text-error">
+                                    Debe subir una foto de perfil.
+                                </p>
+                            </div>
+                            <div *ngIf="editarUsuarioForm.get('urlFoto').hasError('formato')">
+                                <p class="text-error">
+                                    El formato del archivo seleccionado no es válido.<br><br>
+                                    Debe seleccionar una imagen con formato<br> .jpg, .jpeg o .png
+                                </p>
+                            </div>
+                            <div
+                                *ngIf="editarUsuarioForm.get('urlFoto').hasError('tamanioInvalido') && editarUsuarioForm.get('urlFoto').touched">
+                                <p class="text-error">
+                                    La foto de perfil no debe superar los 5MB.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="d-flex py-4">
+            <div>
+                <button type="submit" class="btn btn-primary boton-gris" (click)="volver()">Volver</button>
+            </div>
+
+            <div class="ms-auto mb-3">
+                <button type="submit" class="btn btn-primary boton-celeste" (click)="modificarDatos()"
+                    [disabled]="editarUsuarioForm.invalid || !editarUsuarioForm.dirty">Guardar
+                    cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

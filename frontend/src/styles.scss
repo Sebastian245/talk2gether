@@ -1,0 +1,138 @@
+// @import 'bootstrap/scss/bootstrap';
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.modal {
+  z-index: 1060 !important;
+}
+
+.modal-dialog {
+  max-width: 950px !important;
+}
+
+.modal-content {
+  border-radius: 20px !important;
+}
+
+.text-error {
+  color: #ff9234;
+  font-family: Poppins;
+  font-weight: bold;
+  padding-top: 2px;
+  font-size: 15px;
+
+  &-input {
+    position: absolute;
+    font-size: 14px;
+    line-height: 16px;
+    &-exception {
+      font-size: 12px;
+    }
+  }
+
+  &-response {
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+app-principal {
+  position: relative;
+  top: 96px;
+}
+
+app-side-bar-ayuda{
+  position: relative;
+  top: 150px;
+}
+
+app-visualizar-perfil {
+  position: absolute;
+  z-index: 1;
+}
+
+app-principal{
+  background-color: aliceblue !important;
+}
+
+app-dashboard-administrador{
+  display: flex;
+  height: 100vh;
+}
+// @import "~swiper/swiper-bundle";
+
+.swiper-container {
+  width: 100%;
+  height: 300px;
+  margin: 50px auto;
+}
+
+.swiper-slide {
+  background: #f1f1f1;
+  color: #000;
+  text-align: center;
+  line-height: 300px;
+  width: 450px !important;
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition-property: transform;
+}
+
+body{
+  font-family: Poppins;
+  background-color: aliceblue;
+}
+
+.grande {
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.grande:hover {
+  transform: scale(1.1);
+}
+
+.horizontal-pf {
+  display: flex;
+  flex-direction: row;
+  column-gap: 25px;
+  align-items: center;
+}
+
+.vertical-pf {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 25px;
+}
+
+.img-pf{
+  width: 55vw;
+  border: 1px solid black;
+}
+
+.boton-pf {
+  background-color: #199DE8;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid transparent !important;
+}
+
+.container-pf{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

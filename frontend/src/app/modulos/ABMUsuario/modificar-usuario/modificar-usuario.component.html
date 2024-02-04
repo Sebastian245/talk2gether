@@ -1,0 +1,50 @@
+<ng-container *ngIf="isUser$ | async">
+  <div class="modal-content-interes">
+    <div class="modal-header">
+      <button type="button" class="btn btn-link" (click)="dismissModal()">
+        <i class="far fa-times-circle grande"></i>
+      </button>
+    </div>
+    <form [formGroup]="rolForm" (ngSubmit)="enviarDatos()" class="formulario-orden">
+      <div class="estilo-letra-h2">Modificar usuario</div>
+      <div class="padding">
+        <div class="estilo-letra">
+          <div class="horizontal">
+            <label>Nombre:</label>
+            <label class="letra-dato">{{nombreApellido}}</label>
+          </div>
+        </div>
+        <div class="estilo-letra">
+          <div class="horizontal">
+            <label>Correo:</label>
+            <label class="letra-dato">{{correo}}</label>
+          </div>
+        </div>
+        <div class="estilo-letra">
+          <div class="horizontal">
+            <label>Rol actual:</label>
+            <label class="letra-dato">{{nombreRol}} </label>
+          </div>
+        </div>
+        <div class="estilo-letra">
+          <label> Nuevo rol*:</label>
+        </div>
+        <select class="form-select" id="roles" style="color: black;" formControlName="rol">
+          <option value="" disabled selected>Seleccione una opción</option>
+          <option *ngFor="let role of rolesList" [value]="role">{{ role }}</option>
+        </select>
+        <div *ngIf="rolForm.get('rol').hasError('required') && submitForm">
+          <div class="text-error">El nuevo rol es requerido. Seleccione uno de la lista desplegable.</div>
+        </div>
+        <div *ngIf="rolForm.get('rol').hasError('rolIgualnombre') && submitForm">
+          <div class="text-error">El rol seleccionado es igual al rol actual.</div>
+        </div>
+      </div>
+      <div class="botones">
+        <div type="button" class="botones-volver estilo-letra grande" type="button" (click)="dismissModal()">Volver
+        </div>
+        <button class="botones-submit estilo-letra grande" type="submit">Confirmar</button>
+      </div>
+    </form>
+  </div>
+</ng-container>

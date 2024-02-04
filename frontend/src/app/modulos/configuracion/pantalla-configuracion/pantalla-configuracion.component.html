@@ -1,0 +1,50 @@
+<ng-container *ngIf="informacionCargada">
+    <div class="container-informacion">
+        <div class="container">
+            <div class="d-flex justify-content-around">
+                <div class="mb-4">
+                    <div class="info">
+                        <h1 class="my-4">Datos personales</h1>
+                        <h4><strong>Correo:</strong> {{ datosUsuario.correo }}</h4>
+                        <h4><strong>Nombre:</strong> {{ datosUsuario.nombreUsuario }}</h4>
+                        <h4><strong>Apellido:</strong> {{ datosUsuario.apellidoUsuario }}</h4>
+                        <h4><strong>Descripción:</strong> {{ datosUsuario.descripcion }}</h4>
+                        <h4><strong>Fecha de nacimiento:</strong> {{ datosUsuario.fechaNacimiento }}
+                        </h4>
+                        <h4><strong>País:</strong> {{ datosUsuario.nombrePais }}</h4>
+                        <h4><strong>Intereses:</strong> {{ nombresIntereses }}</h4>
+                        <h4><strong>Idioma nativo:</strong> {{ datosUsuario.nombreIdiomaNativo }}</h4>
+                        <h4><strong>Idioma a aprender:</strong> {{ datosUsuario.nombreIdiomaAprender }}</h4>
+                        <h4><strong>Nivel de idioma:</strong> {{ datosUsuario.nombreNivelIdioma }}</h4>
+                    </div>
+                </div>
+                <div class="ms-auto">
+                    <div class="imagen-perfil">
+                        <img class="imagen" src="{{ datosUsuario.urlFoto }}" id="foto-perfil" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex">
+                <div>
+                    <button type="submit" class="btn btn-primary boton-celeste"
+                        (click)="openUsuariosBloqueadosModal()">Usuarios bloqueados</button>
+                </div>
+
+                <div class="ms-auto mb-3">
+                    <button type="submit" class="btn btn-primary boton-celeste" (click)="editarDatos()">Editar mis datos
+                        <i class="fa-solid fa-pen-to-square" style="color: #ffffff;"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Contraseña</h2>
+        <button type="submit" class="btn btn-primary boton-celeste" (click)="openCambiarContraseniaModal()">Cambiar
+            contraseña</button>
+        <h2>Cuenta</h2>
+        <button type="submit" class="btn btn-primary boton-rojo" (click)="openEliminarCuentaModal()">Eliminar
+            cuenta</button>
+    </div>
+</ng-container>

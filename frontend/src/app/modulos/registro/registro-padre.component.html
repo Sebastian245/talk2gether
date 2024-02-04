@@ -1,0 +1,8 @@
+<ng-container *ngIf="!pantalla2; else irPantalla2">
+    <app-registrar-usuario1 (enviarData)="recibirDataPantalla1($event)"></app-registrar-usuario1>
+</ng-container>
+
+<ng-template #irPantalla2>
+    <app-registrar-usuario2 (enviarData2)="recibirDataPantalla2($event)"
+        (volverPantalla1)="volverPantalla1($event)"></app-registrar-usuario2>
+</ng-template>

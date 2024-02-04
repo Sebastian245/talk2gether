@@ -1,0 +1,45 @@
+<div class="posicion-general">
+    <div class="separacion-tabla-boton">
+      <div class="tabla-scroll">
+        <table class="table table-borderer table-bordered table-striped table-hover">
+          <thead>
+            <tr class="table-color">
+              <th scope="col">#</th>
+              <th scope="col">Motivos de reporte</th>
+              <th scope="col">Tipo de motivo</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <ng-container *ngFor="let motivo of motivoList ; let i = index">
+              <tr>
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{motivo.nombreMotivo}}</td>
+                <td>{{motivo.nombreTipoMotivo}}</td>
+                <td>
+                  <div class="iconos-orden-tabla">
+                    <ng-container *ngIf="motivo.fechaHoraFinVigenciaMotivo==null">
+                      <div type="button" (click)="desHabilitarMotivo(motivo.id, motivo.nombreMotivo)" ata-toggle="tooltip" title="Deshabilitar">
+                        <i class="fa-solid fa-circle-xmark grande"></i>
+                      </div>
+                    </ng-container>
+                    <ng-container *ngIf="motivo.fechaHoraFinVigenciaMotivo!=null">
+                      <div type="button" ata-toggle="tooltip" title="Editar" (click)="modificarInteres(motivo.id, motivo.nombreMotivo)">
+                        <i class="fa-solid fa-pencil grande"></i>
+                      </div>
+                      <div type="button" (click)="habilitarMotivo(motivo.id, motivo.nombreMotivo)" ata-toggle="tooltip" title="Habilitar">
+                        <i class="fa-solid fa-circle-check grande"></i>
+                      </div>
+                    </ng-container>
+                  </div>
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </div>
+      <div class="button-right">
+        <div type="button" class="button-general-anadir grande" (click)="aniadirInteres()">Añadir motivo</div>
+      </div>
+    </div>
+  </div>

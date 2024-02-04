@@ -1,0 +1,39 @@
+<div class="modal-content-interes">
+    <div class="modal-header">
+        <button type="button" class="btn btn-link" (click)="dismissModal()">
+            <i class="far fa-times-circle grande"></i>
+        </button>
+    </div>
+    <form [formGroup]="fechasForm" (ngSubmit)="filtrar()" class="formulario-orden"> 
+    <h2 class="estilo-letra-h2">Filtro por fecha</h2>
+    <div class="padding">
+        <div class="estilo-letra">
+            <div class="input-group mb-3 fecha">
+                <div>Fecha desde:</div>
+                <input formControlName="fechaDesde" type="date">
+            </div>
+            <div class="input-group mb-3 fecha">
+                <div>Fecha hasta:</div>
+                <input formControlName="fechaHasta" type="date">
+            </div>
+        </div>
+        <div *ngIf="fechasForm.get('fechaDesde').invalid && fechasForm.get('fechaDesde').touched && submitForm">
+            <div class="text-error" *ngIf="fechasForm.get('fechaDesde').hasError('required')">Fecha Desde es
+                requerida.</div>
+        </div>
+        <div *ngIf="fechasForm.get('fechaHasta').hasError('required') && fechasForm.get('fechaHasta').touched && submitForm">
+            <div class="text-error">Fecha Hasta es requerida.</div>
+          </div>
+        <div *ngIf="fechasForm.get('fechaHasta').invalid && fechasForm.get('fechaHasta').touched && submitForm">
+            <div class="text-error" *ngIf="fechasForm.hasError('validarFecha')">Las fechas son inválidas. Fecha
+                Hasta no puede ser
+                menor que Fecha Desde.</div>
+        </div>
+        <div class="botones">
+            <div class="botones-volver estilo-letra grande" type="button" (click)="dismissModal()">Volver
+            </div>
+            <button class="botones-submit estilo-letra grande" type="submit">Filtrar</button>
+        </div>
+    </div>
+    </form>
+</div>

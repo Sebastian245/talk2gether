@@ -1,0 +1,255 @@
+.entero {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 85vh;
+  padding: 0;
+  width: 100vw;
+  background-color: #2b6a78;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.imagen {
+  width: 9vw;
+  height: 9vw;
+  object-fit: cover;
+}
+.nombre {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2vw;
+  font-weight: bold;
+  font-family: Poppins;
+}
+.imagen-perfil {
+  position: relative;
+  height: 9vw;
+  width: 9vw;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+.perfil-nombre {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  justify-content: center;
+  align-items: center;
+  top: -10%;
+  position: absolute;
+  width: 100%;
+}
+.parrafo{
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5vw;
+  font-weight: bold;
+  font-family: Poppins;
+  width: 50%;
+}
+.desbloquear-boton{
+  background-color:orange;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  max-width: 225px;
+  color: #fff;
+  font-size: 20px;
+  font-family: Poppins;
+  margin-top: 4%;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+i{
+  position: absolute;
+  right: 50px;
+  top: 105px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1152px) {
+
+  .perfil-nombre {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    top: -7%;
+    position: absolute;
+    width: 100%;
+  }
+  
+
+}
+@media screen and (max-height: 800px){
+  .entero {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 75vh;
+    padding: 0;
+    width: 100vw;
+    background-color: #2b6a78;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nombre {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2vw;
+    font-weight: bold;
+  }
+  
+  .imagen-perfil {
+    position: relative;
+    height: 7vw;
+    width: 7vw;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  .perfil-nombre {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    align-items: center;
+    top: -15%;
+    position: absolute;
+    width: 100%;
+  }
+
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .imagen-perfil {
+    position: relative;
+    height: 14vw ;
+    width: 14vw ;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .imagen {
+    width: 14vw;
+    height: 14vw;
+    object-fit: cover;
+  }
+  .datos-usuario {
+    margin-top: 10%;
+    font-size: 4.5vw;
+    color: black;
+    font-family: Poppins;
+  }
+  .container-first {
+    position: absolute;
+    display: flex;
+    color: white;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7vw;
+    margin-top: 3%;
+    left: 20%;
+  }
+
+}
+
+@media screen and (max-width: 767px) and (max-height: 915px){
+  .contenedores-lg {
+    background-color: rgb(168 176 168);
+    height: 45vh;
+    max-height: 300px;
+    width: 80vw;
+    margin-top: 3%;
+    border-radius: 65px;
+    align-items: center;
+    justify-content: center;
+    color: black;
+  }
+
+
+
+  .datos-usuario {
+    margin-top: 10%;
+    font-size: 5vw;
+    color: black;
+    font-family: Poppins;
+  }
+  .letra-esp {
+    color: black;
+    display: flex;
+    top: 0;
+    position: absolute;
+    margin-top: 50%;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 3vw;
+    width: max-content;
+    max-width: 65vw;
+    right:-90%;
+  }
+  .login-buttons {
+    margin-top: 5px;
+    display: flex;
+  }
+  .button-left {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: gray;
+    color: #fff;
+    font-size: 20px;
+    font-family: Poppins;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+  .d-md-none{
+    margin-bottom: 35px;
+  }
+  .container-first {
+    position: absolute;
+    display: flex;
+    color: white;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7vw;
+    margin-top: 3%;
+    left: 20%;
+  }
+  .imagen-perfil {
+    position: relative;
+    height: 15vw;
+    width: 15vw;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin-top: 55px;
+  }
+}

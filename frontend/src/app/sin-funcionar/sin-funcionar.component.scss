@@ -1,0 +1,328 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  width: 750px;
+  height: 560px;
+  padding-top: 40px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #2b6a78;
+  position: relative;
+  display: inline-table;
+}
+
+.login-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: bold;
+  font-family: Poppins;
+  font-size: 35px;
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 32px;
+  font-weight: bold;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  background-color: #199de8;
+  color: #fff;
+  font-size: 20px;
+  font-family: Poppins;
+  margin-top: 32px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.login-buttons {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  column-gap: 25px;
+}
+
+.centrado {
+  position: absolute;
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &-icono {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 230px;
+  }
+}
+
+.franja {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-height: 768px) {
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .login-form {
+    width: 750px;
+    height: 70%;
+    padding-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+    display: inline-table;
+    margin-top: 6%;
+  }
+
+  .login-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+    font-family: Poppins;
+    font-size: 35px;
+    margin-top: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 32px;
+    font-weight: bold;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #199de8;
+    color: #fff;
+    font-size: 20px;
+    font-family: Poppins;
+    margin-top: 32px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  .login-buttons {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 25px;
+  }
+
+  .centrado {
+    position: absolute;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-icono {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 230px;
+    }
+  }
+
+  .franja {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 800px) and (max-height: 600px) {
+}
+
+@media screen and (max-height: 720px) {
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .login-form {
+    width: 750px;
+    height: 70%;
+    padding-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+    display: inline-table;
+    margin-top: 6%;
+  }
+
+  .login-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+    font-family: Poppins;
+    font-size: 25px;
+    margin-top: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 32px;
+    font-weight: bold;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #199de8;
+    color: #fff;
+    font-size: 20px;
+    font-family: Poppins;
+    margin-top: 32px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  .login-buttons {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 25px;
+  }
+
+  .centrado {
+    position: absolute;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-icono {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 150px;
+    }
+  }
+
+  .franja {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+@media screen and (max-width: 450px) {
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .login-form {
+    width: 750px;
+    height: 520px;
+    padding-top: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    background-color: #2b6a78;
+    position: relative;
+    display: inline-table;
+    margin-top: 6%;
+  }
+
+  .login-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    font-weight: bold;
+    font-family: Poppins;
+    font-size: 25px;
+    margin-top: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 32px;
+    font-weight: bold;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #199de8;
+    color: #fff;
+    font-size: 20px;
+    font-family: Poppins;
+    margin-top: 32px;
+    border-radius: 20px;
+    font-weight: bold;
+  }
+
+  .login-buttons {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 25px;
+  }
+
+  .centrado {
+    position: absolute;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-icono {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 200px;
+    }
+  }
+
+  .franja {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,50 @@
+<ng-container *ngIf="isUserEliminar$ | async">
+  <div class="modal-content-interes">
+    <div class="modal-header">
+      <button type="button" class="btn btn-link" (click)="dismissModal()">
+        <i class="far fa-times-circle grande"></i>
+      </button>
+    </div>
+    <form [formGroup]="bajaForm" (ngSubmit)="enviarDatos()" class="formulario-orden">
+      <div class="estilo-letra-h2">Desea eliminar a:</div>
+      <div class="padding">
+        <div class="estilo-letra">
+          <div class="horizontal">
+            <label>Nombre:</label>
+            <label class="letra-dato">{{nombreApellido}}</label>
+          </div>
+        </div>
+        <div class="estilo-letra">
+          <div class="horizontal">
+            <label>Correo:</label>
+            <label class="letra-dato">{{correo}}</label>
+          </div>
+        </div>
+        <div class="estilo-letra">
+          <label> Motivo:</label>
+        </div>
+        <ng-select [items]="motivoList" bindLabel="listaNombreMotivo" [multiple]="true"
+          placeholder="Seleccione los motivos..." formControlName="selectedMotivos">
+        </ng-select>
+        <div *ngIf="bajaForm.get('selectedMotivos').invalid && submitForm" class="text-error">
+          Los motivos son requeridos
+        </div>
+        <div class="estilo-letra">
+          <label>Descripción:</label>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control" id="textArea" rows="3" formControlName="descripcion"
+            placeholder="Describa el problema detalladamente..."></textarea>
+          <div *ngIf="bajaForm.get('descripcion').invalid && submitForm" class="text-error">
+            La descripción es requerida
+          </div>
+        </div>
+      </div>
+      <div class="botones">
+        <div type="button" class="botones-volver estilo-letra grande" type="button" (click)="dismissModal()">Cancelar
+        </div>
+        <button class="botones-submit estilo-letra grande" type="submit">Eliminar</button>
+      </div>
+    </form>
+  </div>
+</ng-container>

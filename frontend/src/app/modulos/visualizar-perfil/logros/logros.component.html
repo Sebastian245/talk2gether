@@ -1,0 +1,71 @@
+<ng-container *ngIf="{user: isUser$ | async, perfil: isUserPerfil$ | async} as userCargado">
+    <ng-container *ngIf="userCargado.user && userCargado.perfil && logrosCargados">
+        <div class=" entero">
+            <div class="boton-cruz">
+                <a type="button" (click)="volver()"><i class="fa-regular fa-circle-xmark"
+                        style="color: #ffffff; font-size: 30px;"></i></a>
+            </div>
+            <div class="perfil-nombre">
+                <div class="imagen-perfil grande" type="button" (click)="openDialog(userCargado.perfil?.urlFoto)">
+                    <img class="imagen" [src]=userCargado.perfil?.urlFoto id="foto-perfil" />
+                </div>
+                <h6 class="nombre">{{userCargado.perfil?.nombreUsuario}}
+                    {{userCargado.perfil?.apellidoUsuario}},
+                    {{userCargado.perfil?.edadUsuario}}</h6>
+
+                <div class="container">
+                    <div class="row mt-2">
+
+                        <div class="col-md-6 mb-4" *ngFor="let logro of listaLogros">
+                            <ng-container *ngIf="!logro.elLogroSeConsiguio; else logroCompleto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <div>
+                                                <h5>{{ logro.nombreLogro }}</h5>
+                                            </div>
+                                            <div class="ms-auto">
+                                                {{ logro.valorActual }}/{{ logro.valorMaximo }}
+                                            </div>
+                                        </div>
+                                        <div class="progress my-2">
+                                            <div class="progress-bar" role="progressbar"
+                                                [style.width.%]="logro.porcentajeLogro"
+                                                [attr.aria-valuenow]="logro.porcentajeLogro" aria-valuemin="0"
+                                                aria-valuemax="100">
+                                                {{ logro.porcentajeLogro }}%
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div>
+                                                <p class="card-text">{{ logro.descripcionLogro }}</p>
+                                            </div>
+                                            <div class="ms-auto">
+                                                <p class="puntos m-0 p-0">Otorga {{ logro.puntosQueOtorga }} puntos.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-template #logroCompleto>
+                                <div class="card" style="background-color: #ffcd3c; height: 100%;">
+                                    <div class="card-body d-flex flex-column justify-content-center">
+                                        <div class="d-flex">
+                                            <div>
+                                                <h5>{{ logro.nombreLogro }}</h5>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <p class="card-text">{{ logro.descripcionLogro }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</ng-container>

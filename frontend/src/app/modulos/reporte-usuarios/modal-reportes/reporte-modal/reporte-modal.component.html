@@ -1,0 +1,31 @@
+<ng-container *ngIf="{user: reporte$ | async}">
+    <div class="modal-content-interes">
+        <div class="modal-header">
+            <button type="button" class="btn btn-link" (click)="dismissModal()">
+                <i class="far fa-times-circle grande"></i>
+            </button>
+        </div>
+        <div class="tabla-scroll" style="width: 55vw;">
+            <table class="table table-borderer table-bordered table-striped table-hover">
+                <thead>
+                    <tr class="table-color">
+                        <th scope="col">Usuario que reporta</th>
+                        <th scope="col">Fecha y hora</th>
+                        <th scope="col">Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let detalle of detalleReporteList ; let i = index">
+                        <tr>
+                            <th (click)="dirigirPerfil(detalle.idCuentaInformanteMotivo)" class="fila tamanio cursor"
+                                scope="row">{{detalle.correo}}</th>
+                            <td class="fila tamanio">{{detalle.fechaHoraAltaReporteMotivo}}</td>
+                            <td class="fila">{{detalle.descripcionReporteMotivo}}</td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</ng-container>

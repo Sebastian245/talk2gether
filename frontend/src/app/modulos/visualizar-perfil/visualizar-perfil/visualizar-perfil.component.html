@@ -1,0 +1,219 @@
+<ng-container *ngIf="{user: isUser$ | async, perfil: isUserPerfil$ | async} as userCargado">
+    <ng-container *ngIf="userCargado.user && userCargado.perfil">
+        
+        <div class="entero">
+            <div class="perfil-nombre">
+                <div class="imagen-perfil grande" type="button" (click)="openDialog(userCargado.perfil?.urlFoto)">
+                    <img class="imagen" [src]=userCargado.perfil?.urlFoto id="foto-perfil" />
+                </div>
+                <h6 class="nombre">{{userCargado.perfil?.nombreUsuario}}
+                    {{userCargado.perfil?.apellidoUsuario}} ,
+                    {{userCargado.perfil?.edadUsuario}}</h6>
+
+            </div>
+            <div *ngIf="!user">
+                <div class="container-first">
+                    <div class="columna grande" type="button" (click)="dirigirLogros()">
+                        <i class="fa-solid fa-award tamanio"></i>
+                        <h6 class="tamanio-letra">Logros</h6>
+                    </div>
+                    <div class="columna grande" type="button" (click)="dirigirEstadisticas()">
+                        <i class="fa-solid fa-chart-column tamanio"></i>
+                        <h6 class="tamanio-letra"> Estadísticas</h6>
+                    </div>
+                </div>
+                <div class="container-second">
+                    <div class="columna grande" type="button" (click)="dirigirMensaje()">
+                        <i class="fa-solid fa-message tamanio"></i>
+                        <h6 class="tamanio-letra">Mensaje</h6>
+                    </div>
+                    <div *ngIf="seguir" (click)="dejarSeguirUsuario()">
+                        <div class="columna grande" type="button">
+                            <i class="fa-solid fa-user tamanio"></i>
+                            <h6 class="tamanio-letra"> Siguiendo</h6>
+                        </div>
+                    </div>
+                    <div *ngIf="!seguir" (click)="seguirUsuario()">
+                        <div class="columna grande" type="button">
+                            <i class="fa-regular fa-user tamanio"></i>
+                            <h6 class="tamanio-letra"> Seguir</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-third">
+                    <div class="columna">
+                        <ng-container>
+                            <button class="btn p-0 d-block grande" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="true" style="color: white;">
+                                <i class="fa-solid fa-sliders tamanio-slider grande"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" id="menuPerfil">
+                                <li class="nav-item d-block" type="button">
+                                    <a class="dropdown-item" (click)="verSeguidores()">
+                                        <i class="fa-solid fa-users"></i>
+                                        Seguidores
+                                    </a>
+                                </li>
+                                <li class="nav-item d-block" type="button" (click)="bloquear()">
+                                    <a class="dropdown-item">
+                                        <i class="fa-solid fa-user-lock"></i>
+                                        Bloquear
+                                    </a>
+                                </li>
+                                <li class="nav-item d-block" type="button" (click)="reportar()">
+                                    <a class="dropdown-item">
+                                        <i class="fa-solid fa-person-circle-minus"></i>
+                                        Reportar
+                                    </a>
+                                </li>
+                            </ul>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="user">
+                <div class="container-first-miPerfil">
+                    <div class="columna tamanio grande" type="button" (click)="dirigirLogros()">
+                        <i class="fa-solid fa-award tamanio"></i>
+                        <h6 class="tamanio-letra">Logros</h6>
+                    </div>
+                </div>
+                <div class="container-second">
+                    <div class="columna grande" type="button" (click)="dirigirEstadisticas()">
+                        <i class="fa-solid fa-chart-column tamanio"></i>
+                        <h6 class="tamanio-letra "> Estadísticas</h6>
+                    </div>
+                </div>
+                <div class="container-third">
+                    <div class="columna">
+                        <ng-container>
+                            <button class="btn p-0 d-block tamanio-slider grande" type="button"
+                                data-bs-toggle="dropdown" aria-expanded="true" style="color: white;">
+                                <i class="fa-solid fa-sliders"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" id="menuPerfil">
+                                <li class="nav-item d-block" type="button">
+                                    <a class="dropdown-item" (click)="verSeguidores()">
+                                        <i class="fa-solid fa-users"></i>
+                                        Seguidores
+                                    </a>
+                                </li>
+                            </ul>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-none d-md-block">
+                <div class="info-perfil">
+                    <div class="info-perfil__idiomas">
+                        <div class="info-perfil__idiomas-detalle">
+                            <h3 class="letra">Idiomas</h3>
+                            <h2 class="letra-subtitulo">Lengua materna</h2>
+                            <div class="bandera">
+                                <span class="fi fi-{{userCargado.perfil?.urlBandera}}"></span>
+                                <div class="datos-usuario-no-responsive" style="margin-left:10px">{{userCargado.perfil?.nombreIdiomaNativo}}
+                                </div>
+                            </div>
+                            <div class="info-perfil__idiomas-detalle-contenedor">
+                                <h2 class="letra-subtitulo">Está aprendiendo</h2>
+                                <div class="datos-usuario-no-responsive">{{userCargado.perfil?.nombreIdiomaAprendiz}}
+                                </div>
+                                <div class="datos-usuario-no-responsive">(
+                                    {{userCargado.perfil?.nombreNivelIdiomaAprendiz}} )</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-perfil__descripcion">
+                        <div class="info-perfil__descripcion-detalle descripcion-usuario">
+                            <h2 class="letra">Descripción</h2>
+                            <div>
+                                <div class="h5-no-responsive ">{{userCargado.perfil?.descripcionUsuario}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-perfil__ranking">
+                        <div class="info-perfil__ranking-detalle">
+                            <div class="ubicacione-contenedor">
+                                <h2 class="letra">Ranking</h2>
+                                <div class="h5excepcion"># {{userCargado.perfil?.rankingPosicion}}</div>
+                                <div class="h5excepcion">{{userCargado.perfil?.puntosTotales}} puntos</div>
+                            </div>
+                            <div class="ubicacione-contenedor">
+                                <h2 class="letra">Intereses</h2>
+                                <div *ngFor="let interes of userCargado.perfil?.intereses">
+                                    <div class="h5excepcion espacio-superior">{{interes}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="login-buttons">
+                    <button class="button-left grande" type="button" (click)="volver()">Volver</button>
+                </div>
+            </div>
+            <div class="d-block d-md-none">
+                <ngb-carousel style="display: table-caption;">
+                    <ng-template ngbSlide>
+                        <div contendor-lg-padre>
+                            <div class="contenedores-lg">
+                                <div class="carousel-caption">
+                                    <div class="texto-responsive-ubicacion">
+                                        <h2 class="h2-responsive">Lengua materna</h2>
+
+
+                                        <h2 class="h2-responsive-esp">Idiomas</h2>
+                                        <div calss="bandera">
+                                            <span class="fi fi-{{userCargado.perfil?.urlBandera}}"></span>
+                                            <h3 class="datos-usuario">{{userCargado.perfil?.nombreIdiomaNativo}}</h3>
+                                        </div>
+                                        <h2 class="h2-responsive-esp-seg">Está aprendiendo</h2>
+                                        <h3 class="datos-usuario">{{userCargado.perfil?.nombreIdiomaAprendiz}}</h3>
+                                        <h3 class="datos-usuario">( {{userCargado.perfil?.nombreNivelIdiomaAprendiz}} )
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div contendor-lg-padre>
+                            <div class="contenedores-lg">
+                                <div class="carousel-caption">
+                                    <div class="contenedor-descripcion">
+                                        <h2 class="h2-responsive">Descripción</h2>
+                                        <div>
+                                            <h5 class="h5-no-responsive">{{userCargado.perfil?.descripcionUsuario}}</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template ngbSlide>
+                        <div contendor-lg-padre>
+                            <div class="contenedores-lg">
+                                <div class="carousel-caption">
+                                    <div class="texto-responsive-ubicacion">
+                                        <h2 class="h2-responsive">Ranking</h2>
+                                        <h3 class="datos-usuario"># {{userCargado.perfil?.rankingPosicion}}</h3>
+                                        <h3 class="datos-usuario">{{userCargado.perfil?.puntosTotales}} puntos</h3>
+                                        <h2 class="h2-responsive">Intereses</h2>
+                                        <div *ngFor="let interes of userCargado.perfil?.intereses">
+                                            <h3 class="datos-usuario">{{interes}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+            <div class="login-buttons d-flex d-md-none ">
+                <button class="button-left " type="button" (click)="volver()">Volver</button>
+            </div>
+
+        </div>
+    </ng-container>
+</ng-container>

@@ -1,0 +1,102 @@
+<div class="posicion-general">
+    <div class="orden-vertical">
+        <div class="orden-vertical">
+            <div class="orden-horizontal">
+                <ng-container>
+                    <div class="input-group mb-3">
+                        <input #fileInput [ngClass]="subirArchivo ? 'subir-verde' : 'subir'" type="file"
+                            [disabled]="subirBloqueado" (change)="onFileSelected($event)">
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="seleccionado==false">
+                    <div class="media">
+                        <div type="button" class="boton" (click)="onLinkSelectedFirebase()">Seleccionar ultima copia del
+                            back-up</div>
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="seleccionado==true">
+                    <div type="button" class="boton-ok" (click)="eliminarSeleccionado()">Seleccionado ultima copia del
+                        back-up</div>
+                    <i class="fa-solid fa-check"></i>
+                </ng-container>
+            </div>
+            <ng-container *ngIf="!archivoSubido && submitForm">
+                <p class="text-error">Debe seleccionar un archivo o utilizar una copia de la base de datos.</p>
+            </ng-container>
+            <form [formGroup]="idsForm" (ngSubmit)="mostrarChats()">
+                <div class="orden-vertical">
+                    <div class="orden-horizontal">
+                        <div class="orden-horizontal">
+                            <div class="orden-vertical">
+                                <div class="orden-vertical">
+                                    <div class="letra">ID Aprendiz 1</div>
+                                    <div class="input-group mb-3">
+                                        <input formControlName="id1" type="text"
+                                            placeholder="Ingrese el id de un usuario" required
+                                            (input)="onInputChange($event)">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="orden-vertical">
+                                <div class="orden-vertical">
+                                    <div class="letra">ID Aprendiz 2</div>
+                                    <div class="input-group mb-3">
+                                        <input formControlName="id2" type="text"
+                                            placeholder="Ingrese el id del otro usuario" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="orden-horizontal">
+                            <div class="input-group mb-3">
+                                <div class="letra">Fecha desde:</div>
+                                <input formControlName="fechaDesde" type="date" (input)="onInputChange($event)">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="letra">Fecha hasta:</div>
+                                <input formControlName="fechaHasta" type="date" (input)="onInputChange($event)">
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        *ngIf="idsForm.get('id1').hasError('required') || idsForm.get('id2').hasError('required') && submitForm">
+                        <p *ngIf="idsForm.get('id1').hasError('required') && submitForm" class="text-error">Debe
+                            completar los campos de ID Aprendiz 1.</p>
+                        <p *ngIf="idsForm.get('id2').hasError('required') && submitForm" class="text-error">Debe
+                            completar los campos de ID Aprendiz 2.</p>
+                    </div>
+                    <div>
+                        <p *ngIf="(idsForm.get('id1').invalid ||idsForm.get('id2').invalid) && submitForm"
+                            class="text-error">Solo se puede completar con números</p>
+                    </div>
+                    <div *ngIf="idsForm.get('fechaDesde').invalid && idsForm.get('fechaDesde').touched">
+                        <div class="text-error" *ngIf="idsForm.get('fechaDesde').hasError('required')">Fecha Desde es
+                            requerida.</div>
+                    </div>
+                    <div *ngIf="idsForm.get('fechaHasta').invalid && idsForm.get('fechaHasta').touched">
+                        <div class="text-error" *ngIf="idsForm.get('fechaHasta').hasError('required')">Fecha Hasta es
+                            requerida.</div>
+                        <div class="text-error" *ngIf="idsForm.hasError('validarFecha')">Las fechas son inválidas. Fecha
+                            Hasta no puede ser
+                            menor que Fecha Desde.</div>
+                    </div>
+                    <div class="orden-horizontal">
+                        <div>
+                            <button class="boton" type="submit" (click)="onSubmit()">Ver conversación</button>
+                        </div>
+                        <div *ngIf="idsForm.valid && submitForm && mostrar && (seleccionado || subirArchivo)">
+                            <button class="boton-red">Eliminar id {{ idsForm.get('id1').value }}</button>
+                        </div>
+                        <div *ngIf="idsForm.valid && submitForm && mostrar && (seleccionado || subirArchivo)">
+                            <button class="boton-red">Eliminar id {{ idsForm.get('id2').value }}</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <ng-container *ngIf="mostrar==true && idsForm.valid">
+            <app-reporte-chats-visualizar [receptorChat]="chatsArmados"></app-reporte-chats-visualizar>
+        </ng-container>
+    </div>
+</div>

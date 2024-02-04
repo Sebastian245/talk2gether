@@ -1,0 +1,58 @@
+<div class="posicion-general">
+    <div class="separacion-tabla-boton">
+        <div class="columna-busqueda">
+            <div>
+                <div class="titulo-general">Usuarios</div>
+            </div>
+            <form [formGroup]="busquedaForm" (ngSubmit)="buscarUsuariosAdministrador()" class="formulario-orden">
+                <div class="input-group rounded">
+                    <input type="search" class="form-control rounded" placeholder="Buscar..." aria-label="Search"
+                        aria-describedby="search-addon"  formControlName="cadena" />
+                    <button type="submit" class="input-group-text border-0 " id="search-addon">
+                        <i class="fas fa-search grande"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="tabla-scroll">
+            <table class="table table-borderer table-bordered table-striped table-hover">
+                <thead>
+                    <tr class="table-color">
+                        <th scope="col">ID</th>
+                        <th scope="col">Aprendiz</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let usuario of usuarioList ; let i = index">
+                        <tr>
+                            <th class="cursor" scope="row" (click)="dirigirPerfil(usuario.idCuenta)">{{ usuario.idCuenta}}</th>
+                            <td class="cursor"  (click)="dirigirPerfil(usuario.idCuenta)">{{usuario.nombreUsuario}}, {{usuario.apellidoUsuario}}</td>
+                            <td class="cursor" (click)="dirigirPerfil(usuario.idCuenta)">{{usuario.correo}}</td>
+                            <td>{{usuario.nombreRol}}</td>
+                            <td>
+                                <div class="iconos-orden-tabla">
+                                    <div type="button" ata-toggle="tooltip" title="Calificación" (click)="visualizarCalificacion(usuario.idCuenta)">
+                                        <i class="fa-solid fa-star grande"></i>
+                                    </div>
+                                    <div type="button" ata-toggle="tooltip" title="Editar" (click)="modificarUsuario(usuario.idCuenta,usuario.nombreUsuario,usuario.apellidoUsuario,usuario.correo, usuario.nombreRol)">
+                                        <i class="fa-solid fa-pencil grande"></i>
+                                    </div>
+                                    <div type="button" ata-toggle="tooltip" title="Eliminar" (click)="eliminarUsuario(usuario.idCuenta,usuario.nombreUsuario,usuario.apellidoUsuario,usuario.correo, usuario.nombreRol)">
+                                        <i class="fa-solid fa-trash grande"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+        <div class="button-right ">
+            <div type="button" class="button-general-anadir grande" (click)="redireccionarCrearUsuario()">Crear usuario</div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,181 @@
+<ng-container *ngIf="currentUrl !== '/reunion-virtual' && currentUrl !== '/estadisticasPlataforma'">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand has-logo grande" type="button" (click)="redireccionMenuPrincipal()">
+      <img src="../../../assets/talk2gether.svg" height="70px" class="d-inline-block align-top d-none d-md-block"
+        alt="" />
+      <img src="../../../assets/talk2gether_icono.svg" height="70px" class="d-inline-block align-top d-block d-md-none"
+        alt="" />
+    </a>
+    <a class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded=menuDesplegable aria-label="Toggle navigation" data-keyboard="false"
+      data-backdrop="static">
+      <span class="navbar-toggler-icon"></span>
+    </a>
+
+    <!-- Codigo del navbar responsive -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <div class="burguer-orden">
+          <hr class="green-line ">
+          <ng-container *ngIf="localSesion != null">
+            <li class="nav-item d-block d-lg-none nombreUsuario" style="margin-left:15px">
+              {{username}}
+            </li>
+          </ng-container>
+          <ng-container>
+            <li class="nav-item d-block d-lg-none" type="button" (click)="popUpInformacion()">
+              <i class="fa-solid fa-circle-info" id="icono"></i>
+              Información
+            </li>
+          </ng-container>
+          <ng-container *ngIf="currentUrl==='/inicio'">
+            <li class="nav-item d-block d-lg-none" type="button" (click)="referirAmigos()">
+              <i class="fa-solid fa-bullhorn" id="icono"></i>
+              Invita a tus amigos
+            </li>
+          </ng-container>
+          <ng-container *ngIf="currentUrl==='/inicio'">
+            <li class="nav-item d-block d-lg-none" type="button" (click)="redireccionRanking()">
+              <i class="fa-solid fa-ranking-star" id="icono"></i>
+              Ranking
+            </li>
+          </ng-container>
+          <ng-container *ngIf="currentUrl==='/inicio'">
+            <li class="nav-item d-block d-lg-none" type="button" (click)="redireccionChat()">
+              <i class="fa-solid fa-message" id="icono-menu"></i>
+              Chat
+            </li>
+
+            <hr class="green-line ">
+          </ng-container>
+          <ng-container *ngIf="currentUrl==='/' && localSesion===null">
+            <li class="nav-item d-block d-lg-none">
+              <a class="nav-link" type="button" (click)="redireccionLogin()">Iniciar sesión <span
+                  class="sr-only">(current)</span></a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="currentUrl==='/' && localSesion===null || currentUrl==='/login'">
+            <li class="nav-item d-block d-lg-none">
+              <a class="nav-link" type="button" (click)="redireccionRegistrate()">Regístrate <span
+                  class="sr-only">(current)</span></a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="localSesion != null">
+            <li class="nav-item d-block d-lg-none" type="button" (click)="redireccionMiPerfil()">
+              <i class="fa-solid fa-user" id="icono-menu"></i>
+              Mi perfil
+            </li>
+          </ng-container>
+          <ng-container *ngIf="localSesion != null && rol != 'usuario'">
+            <li class="nav-item d-block d-lg-none" type="button" (click)="redireccionAdministrador()">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+              Administrador
+            </li>
+          </ng-container>
+          <ng-container *ngIf="localSesion != null">
+            <li class="nav-item d-block d-lg-none" type="button" (click)="redireccionConfiguracion()">
+              <i class="fa-solid fa-gear" id="icono-menu"></i>
+              Configuración
+            </li>
+          </ng-container>
+          <ng-container *ngIf="localSesion != null">
+            <li class="nav-item d-block d-lg-none" type="button" (click)="redireccionCerrarSesion()">
+              <i class="fa-solid fa-right-from-bracket" id="icono-menu"></i>
+              Cerrar sesión
+            </li>
+          </ng-container>
+          <hr class="green-line ">
+        </div>
+      </ul>
+
+      <!-- Codigo del navbar no responsive -->
+
+      <ul class="navbar-nav orden">
+        <ng-container *ngIf="localSesion != null ">
+          <div class="imagen-rol">
+            <div>
+              <button class="btn p-0 d-none d-lg-block" type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                <img [src]="urlFoto" id="foto-perfil" />
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" id="menuPerfil">
+                <div class="nombreUsuario">
+                  {{username}}
+                </div>
+                <li class="nav-item d-none d-lg-block" type="button" (click)="redireccionAdministrador()"
+                  *ngIf="localSesion != null && rol != 'usuario'">
+                  <a class="dropdown-item">
+                    <i class="fa-solid fa-screwdriver-wrench" style="font-size: 20px;" id="icono-menu"></i>
+                    Administrador
+                  </a>
+                </li>
+                <li class="nav-item d-none d-lg-block" type="button" (click)="redireccionMiPerfil()">
+                  <a class="dropdown-item">
+                    <i class="fa-solid fa-user" style="font-size: 20px;" id="icono-menu"></i>
+                    Mi Perfil
+                  </a>
+                </li>
+                <li class="nav-item d-none d-lg-block" type="button" (click)="redireccionConfiguracion()">
+                  <a class="dropdown-item">
+                    <i class="fa-solid fa-gear" style="font-size: 20px;" id="icono-menu"></i>
+                    Configuración
+                  </a>
+                </li>
+                <li class="nav-item d-none d-lg-block" type="button" (click)="redireccionCerrarSesion()">
+                  <a class="dropdown-item">
+                    <i class="fa-solid fa-right-from-bracket" style="font-size: 20px;" id="icono-menu"></i>
+                    Cerrar sesión
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <ng-container *ngIf="localSesion != null && rol != 'usuario'">
+              <div class="rol">
+                {{rol}}
+              </div>
+            </ng-container>
+          </div>
+
+        </ng-container>
+        <ng-container *ngIf="currentUrl==='/inicio' || currentUrl==='/ranking'">
+          <li class="nav-item d-none d-lg-block grande " type="button" (click)="redireccionChat()">
+            <i class="fa-solid fa-message" id="icono-menu" font-size="35px" ata-toggle="tooltip" data-placement="top"
+              title="Chat">
+              <div class="numero" *ngIf="numeroChats>0">
+                {{numeroChats}}
+              </div>
+            </i>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="currentUrl==='/inicio'">
+          <li class="nav-item d-none d-lg-block " type="button" (click)="redireccionRanking()">
+            <i class="fa-solid fa-ranking-star grande" id="icono" font-size="35px" ata-toggle="tooltip"
+              data-placement="top" title="Ranking"></i>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="currentUrl==='/inicio' || currentUrl==='/ranking'">
+          <li class="nav-item d-none d-lg-block grande" type="button" (click)="referirAmigos()">
+            <i class="fa-solid fa-bullhorn" id="icono" font-size="35px" ata-toggle="tooltip" data-placement="top"
+              title="Invita amigos"></i>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="currentUrl==='/' && localSesion===null">
+          <li class="nav-item d-none d-lg-block grande">
+            <button type="button" class="boton-sesion" (click)="redireccionLogin()">Iniciar sesión</button>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="currentUrl==='/' && localSesion===null || currentUrl==='/login'">
+          <li class="nav-item d-none d-lg-block grande">
+            <button type="button" class="boton-registrar" (click)="redireccionRegistrate()">Regístrate</button>
+          </li>
+        </ng-container>
+        <ng-container>
+          <li class="nav-item d-none d-lg-block grande" type="button" (click)="popUpInformacion()">
+            <i class="fa-solid fa-circle-info" id="icono" font-size="35px" ata-toggle="tooltip" data-placement="top"
+              title="Información"></i>
+          </li>
+        </ng-container>
+      </ul>
+
+    </div>
+  </nav>
+</ng-container>

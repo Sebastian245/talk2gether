@@ -1,0 +1,7 @@
+<ng-container *ngIf="!mostrarMsjExitoso; else msjExitoso">
+    <app-login-chat (dataLogin)="abrirChat($event)" ></app-login-chat>
+</ng-container>
+
+<ng-template #msjExitoso>
+    <app-principal-chat></app-principal-chat>
+</ng-template>

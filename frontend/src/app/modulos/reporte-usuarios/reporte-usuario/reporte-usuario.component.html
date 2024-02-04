@@ -1,0 +1,51 @@
+<div class="posicion-general">
+    <div class="separacion-tabla-boton">
+        <div class="columna-busqueda">
+                <div class="filtros grande" (click)="verFiltros()">Filtros</div>
+                <form [formGroup]="busquedaForm" (ngSubmit)="buscarUsuariosAdministrador()">
+                    <div class="input-group rounded">
+                        <input type="search" class="form-control rounded" placeholder="Buscar..." aria-label="Search"
+                            aria-describedby="search-addon"  formControlName="cadena" />
+                        <button type="submit" class="input-group-text border-0 " id="search-addon">
+                            <i class="fas fa-search grande"></i>
+                        </button>
+                    </div>
+                </form>
+     
+        </div>
+        <div class="tabla-scroll">
+            <table class="table table-borderer table-bordered table-striped table-hover">
+                <thead>
+                    <tr class="table-color">
+                        <th scope="col">Usuario reportado</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Motivo</th>
+                        <th scope="col">Cantidad reportes</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let reporte of reporteList ; let i = index">
+                        <tr>
+                            <th  class="cursor" (click)="dirigirPerfil(reporte.idCuenta)" scope="row">{{reporte.nombreUsuario}}, {{reporte.apellidoUsuario}}</th>
+                            <td>{{reporte.correo}}</td>
+                            <td>{{reporte.nombreMotivo}}</td>
+                            <td>{{reporte.cantidadMotivo}}</td>
+                            <td>
+                                <div class="iconos-orden-tabla">
+                                    <div type="button" ata-toggle="tooltip" title="Ver reportes" (click)="visualizarReportes(reporte.idCuenta,reporte.idMotivo)">
+                                        <i class="fa-solid fa-eye grande"></i>
+                                    </div>
+                                    <div type="button" ata-toggle="tooltip" title="Eliminar" (click)="eliminarUsuario(reporte.idCuenta,reporte.nombreUsuario,reporte.apellidoUsuario, reporte.correo)">
+                                        <i class="fa-solid fa-trash grande"></i>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

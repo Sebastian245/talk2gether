@@ -1,0 +1,44 @@
+<div class="posicion-general">
+  <div class="separacion-tabla-boton">
+    <div class="tabla-scroll">
+      <table class="table table-borderer table-bordered table-striped table-hover">
+        <thead>
+          <tr class="table-color">
+            <th scope="col">Actividad</th>
+            <th scope="col">Puntos ganados</th>
+            <th scope="col">Tipo de actividad</th>
+            <th scope="col">Descripción de actividad</th>
+            <th scope="col">Objetivo</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let punto of puntosList ; let i = index">
+            <tr>
+              <td>{{punto.nombrePuntosPorActividad}}</td>
+              <td>{{punto.puntosPorActividad}}</td>
+              <td>{{punto.tipoPuntosPorActividad}}</td>
+              <td>{{punto.descripcionPuntosPorActividad}}</td>
+              <ng-container *ngIf="punto.tipoPuntosPorActividad != 'Plataforma'; else sinPuntos">
+                <td>{{ punto.puntosMaximos }}</td>
+              </ng-container>
+              <ng-template #sinPuntos>
+                <td>-</td>
+              </ng-template>
+              <td>
+                <div class="iconos-orden-tabla">
+                  <ng-container *ngIf="punto.fechaHoraFinVigenciaPuntosPorActividad==null">
+                    <div type="button" ata-toggle="tooltip" title="Editar"
+                      (click)="modificarPuntosPorActividad(punto.id, punto.nombrePuntosPorActividad, punto.puntosPorActividad, punto.descripcionPuntosPorActividad, punto.puntosMaximos, punto.tipoPuntosPorActividad)">
+                      <i class="fa-solid fa-pencil grande"></i>
+                    </div>
+                  </ng-container>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
