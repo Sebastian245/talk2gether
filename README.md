@@ -1,6 +1,5 @@
 Language Exchange System
 
-Language Exchange System
 
 This project serves as my thesis for my Information Systems Engineering degree. It is a language exchange system designed to facilitate language learning and practice between users. The system leverages Java Spring Boot for the backend, Angular for the frontend, and integrates with Jitsi Meet API and CometChat API for real-time communication features. Additionally, MySQL is employed for data storage, and Firebase Storage caters to file storage requirements.
     
