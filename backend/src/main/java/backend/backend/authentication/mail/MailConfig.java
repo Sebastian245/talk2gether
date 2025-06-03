@@ -17,8 +17,8 @@ public class MailConfig {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
         mailSender.setHost("smtp.office365.com");
         mailSender.setPort(587);
-        mailSender.setUsername("talk2gether.soporte@hotmail.com");
-        mailSender.setPassword("talk2.Gether20231");
+        mailSender.setUsername("");
+        mailSender.setPassword("");
 
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.smtp.auth", "true");
