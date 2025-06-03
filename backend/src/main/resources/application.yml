@@ -3,12 +3,12 @@ spring:
     url: jdbc:mysql://localhost:3306/bdtalk2gether?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Jakarta&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: 1234
-#   url: jdbc:mysql://containers-us-west-32.railway.app:6471/talk2gether?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Jakarta&useSSL=false&allowPublicKeyRetrieval=true
+#   url: jdbc:mysql://URL/BD?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Jakarta&useSSL=false&allowPublicKeyRetrieval=true
 #   username: root
-#   password: OrDXp80oH8kyaDPMs1Iv
+#   password: 
 #    url: jdbc:mysql://localhost:3306/bdtalk2gethertest?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Jakarta&useSSL=false&allowPublicKeyRetrieval=true
 #    username: root
-#    password: 1234
+#    password: 
   jpa:
     hibernate:
       ddl-auto: update
@@ -24,7 +24,7 @@ spring:
   mail:
     host: smtp.office365.com
     port: 587
-    username: talk2gether.soporte@hotmail.com
+    username: 
     password: 
     properties:
       mail:
